@@ -1,5 +1,3 @@
-const Buffer = require("buffer").Buffer;
-
 function decodeSpecialCharacters(encodedLink) {
     let decodedLink = encodedLink
         .replace(/\\u0025/g, "%")
@@ -71,7 +69,7 @@ function decodeSpecialCharacters(encodedLink) {
     return decodedLink;
 }
 
-const extract_url_from_crawl = (html) => {
+const getFacebookUrlFromRaw = (html) => {
     let sd_url, hd_url;
     try {
         sd_url =
@@ -85,8 +83,8 @@ const extract_url_from_crawl = (html) => {
     return { hd_url, sd_url };
 };
 
-const crawlHtml = (videoLink) => {
-    return fetch(videoLink, {
+const crawlFacebookVideoData = (video_url) => {
+    return fetch(video_url, {
         headers: {
             accept: "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
             "accept-language": "vi",
@@ -113,35 +111,82 @@ const crawlHtml = (videoLink) => {
         method: "GET",
     })
         .then((response) => response.text())
-        .then((text) => extract_url_from_crawl(text))
+        .then((text) => getFacebookUrlFromRaw(text))
         .catch((err) => {
             console.log("Failed to crawl!!!" + err);
             return false;
         });
 };
 
+const crawlTikTokVideoData = (video_url) => {
+    return fetch(video_url, {
+        headers: {
+            accept: "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
+            "accept-language": "vi,vi-VN;q=0.9,fr-FR;q=0.8,fr;q=0.7,en-US;q=0.6,en;q=0.5",
+            "cache-control": "max-age=0",
+            priority: "u=0, i",
+            "sec-ch-ua": '"Google Chrome";v="118", "Chromium";v="118", "Not=A?Brand";v="24"',
+            "sec-ch-ua-mobile": "?0",
+            "sec-ch-ua-platform": '"Windows"',
+            "sec-fetch-dest": "document",
+            "sec-fetch-mode": "navigate",
+            "sec-fetch-site": "same-origin",
+            "sec-fetch-user": "?1",
+            "upgrade-insecure-requests": "1",
+        },
+        referrerPolicy: "strict-origin-when-cross-origin",
+        body: null,
+        method: "GET",
+    });
+};
+
 class HomeController {
     index(req, res, next) {
-        res.render("home/index", { title: "Anh Minh" });
+        res.render("home/index");
     }
 
     privateDownloadPage(req, res) {
-        res.render("home/private_download", { title: "Anh Minh" });
+        res.render("home/private_download");
+    }
+
+    tiktokDownloadPage(req, res) {
+        res.render("home/tiktok");
     }
 
     getPublicVideo(req, res, next) {
         const video_url = req.body.video_url;
-        crawlHtml(video_url)
+        crawlFacebookVideoData(video_url)
             .then((response) => res.json(response))
             .catch((err) => res.json({ msg: "Errror!" }));
     }
 
     getPrivateVideo(req, res, next) {
         const page_source = req.body.page_source;
+        res.json(getFacebookUrlFromRaw(page_source) || { msg: "Error, can not find video source!" });
+    }
 
-        const decodedString = Buffer.from(page_source, "base64").toString("utf-8");
+    getTikTokVideo(req, res) {
+        const video_url = req.body.video_url;
+        crawlTikTokVideoData(video_url)
+            .then((response) => response.text())
+            .then((response) => {
+                const jsonData = JSON.parse(
+                    response
+                        .split('__UNIVERSAL_DATA_FOR_REHYDRATION__" type="application/json">')[1]
+                        .split("</script>")[0]
+                );
 
-        res.json(extract_url_from_crawl(page_source) || { msg: "Error, can not find video source!" });
+                const video = jsonData.__DEFAULT_SCOPE__["webapp.video-detail"].itemInfo.itemStruct.video;
+
+                if (video) {
+                    res.json({ video });
+                } else {
+                    res.json({ msg: "Error, can not get video source!" });
+                }
+            })
+            .catch((err) => {
+                res.json({ msg: "Error, can not get video source!" });
+            });
     }
 }
 
