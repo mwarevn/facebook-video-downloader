@@ -15,7 +15,7 @@
 		<div class="join xl:w-1/2 lg:w-2/3 md:w-2/3 sm:w-96">
 			<div class="w-full">
 				<div class="w-full">
-					<input id="input-video-url" class="input input-bordered join-item w-full" placeholder="Dán URL video Facebook..." />
+					<input id="input-video-url" class="input input-bordered rounded rounded-0 join-item w-full" placeholder="Dán URL video Facebook..." />
 				</div>
 			</div>
 
@@ -59,6 +59,8 @@
 		</div>
 	</section>
 </div>
+
+<%- include('../partials/introduce/facebook_video_downloader.ejs') -%>
 
 <script>
 	const $ = document.querySelector.bind(document);
@@ -165,6 +167,8 @@
 				} else {
 					showAlert("Video ở chế độ riêng tư! Tải video bằng <a class='link link-primary' href='/facebook-private-video-downloader'>công cụ tải video riêng tư tại đây</a>.")
 				}
+
+				btn_download.scrollIntoView()
 			})
 			.finally(() => {
 				loading.style.display = "none"

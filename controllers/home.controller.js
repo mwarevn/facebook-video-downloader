@@ -179,7 +179,7 @@ class HomeController {
                 const video = jsonData.__DEFAULT_SCOPE__["webapp.video-detail"].itemInfo.itemStruct.video;
 
                 if (video) {
-                    res.json({ video });
+                    res.json(video);
                 } else {
                     res.json({ msg: "Error, can not get video source!" });
                 }

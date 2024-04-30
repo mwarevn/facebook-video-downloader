@@ -15,7 +15,7 @@
 		<div class="join xl:w-1/2 lg:w-2/3 md:w-2/3 sm:w-96">
 			<div class="w-full">
 				<div class="w-full">
-					<input id="input-video-url" class="input input-bordered join-item w-full" placeholder="Dán URL video tiktok..." />
+					<input value="https://www.tiktok.com/@meowp13/video/7337101675083189550" id="input-video-url" class="input input-bordered join-item w-full" placeholder="Dán URL video tiktok..." />
 				</div>
 			</div>
 
@@ -26,7 +26,7 @@
 			</button>
 
 			<div class="indicator tooltip" data-tip="Click to get link download">
-				<button class="btn btn-primary join-item" id="btn-download">Download</button>
+				<button class="btn btn-secondary join-item" id="btn-download">Search</button>
 			</div>
 		</div>
 	</section>
@@ -43,39 +43,38 @@
 
 		<span class="loading loading-ring loading-lg block mx-auto" style="display: none;"></span>
 
-		<div class="overflow-x-auto mx-auto xl:w-1/2 lg:w-2/3 md:w-2/3 sm:w-96" id="table" style="display: none;">
-			<table class="table">
-				<!-- head -->
-				<thead>
-					<tr>
-						<th>Chất lượng</th>
-						<th>Download</th>
-					</tr>
-				</thead>
-				<tbody>
-
-				</tbody>
-			</table>
+		<div style="display: none;" class="display-btn-download">
+			<button class="btn btn-success text-white btn-download-video-1">Download server 1</button> <br>
+			<button class="btn mt-3 btn-success text-white btn-download-video-2">Download server 2</button>
 		</div>
+
 	</section>
 </div>
+
+<%- include('../partials/introduce/tiktok_video_downloader.ejs') -%>
 
 <script>
 	const $ = document.querySelector.bind(document);
 
 	const btn_download = $("#btn-download");
+
+	const displayBtnDownload = $('.display-btn-download')
+
 	const input_video_url = $("#input-video-url")
 	const loading = $('.loading')
-	const table = $('#table')
-	const tbody = $('tbody')
+
 	const btnPaste = $('#btn-paste')
 
 	const alert = $('.alert');
 	const alert_msg = $('.alert-msg');
 
+	const btnDownSv1 = $('.btn-download-video-1')
+	const btnDownSv2 = $('.btn-download-video-2')
+
 	const showAlert = (msg = '', type = "WARNING") => {
 		alert_msg.innerHTML = msg;
 		alert.style.display = 'flex'
+		displayBtnDownload.style.display = 'none'
 	}
 
 	const hideAlert = () => {
@@ -100,6 +99,7 @@
 	}
 
 	btn_download.onclick = () => {
+		displayBtnDownload.style.display = 'none'
 
 		hideAlert()
 
@@ -108,16 +108,16 @@
 			return;
 		}
 
-		if (!input_video_url.value.includes('fb.com') && !input_video_url.value.includes('facebook.com') && !input_video_url.value.includes('fb.watch')) {
-			showAlert("Vui lòng nhập đúng link facebook!")
+		if (!input_video_url.value.includes('tiktok.com')) {
+			showAlert("Vui lòng nhập đúng link tiktok!")
 			return
 		}
 
 		loading.style.display = "block"
-		tbody.innerHTML = ''
-		table.style.display = 'none'
+		// tbody.innerHTML = ''
+		// table.style.display = 'none'
 
-		fetch("/get-public-video", {
+		fetch("/get-tiktok-video", {
 				method: "POST",
 				headers: {
 					'Content-Type': 'application/json'
@@ -128,47 +128,42 @@
 			})
 			.then(res => res.json())
 			.then(res => {
-				let childs = false;
+				if (!res.msg) {
+					console.log(res.downloadAddr);
+					displayBtnDownload.style.display = 'block'
+					btn_download.scrollIntoView()
 
-				for (let key in res) {
-					let type_quality = null;
-
-					switch (key) {
-						case "sd_url":
-							type_quality = "360 (SD)"
-							break;
-
-						case "hd_url":
-							type_quality = "720 (HD)"
-							break;
-					}
-
-					if (res[key]) {
-						childs = true;
-						let html = `
-								<th>${type_quality}</th>
-								<td><a rel="nofollow" href="${res[key]}" class="link link-success link-hover" download>Download</a></td>
-						`;
-
-
-						// download="${res[key]}"
-						let tr = document.createElement('tr');
-						tr.innerHTML = html;
-
-						tbody.appendChild(tr)
-					}
-				}
-
-				if (childs) {
-					table.style.display = "block"
 
 				} else {
-					showAlert("Video ở chế độ riêng tư! Tải video bằng <a class='link link-primary' href='/facebook-private-video-downloader'>công cụ tải video riêng tư tại đây</a>.")
+					showAlert("Error, can not get video source url!")
 				}
 			})
 			.finally(() => {
 				loading.style.display = "none"
 			})
 
+	}
+
+	function force_download(source_url) {
+		var xhr = new XMLHttpRequest();
+		xhr.open('get', source_url, true);
+		xhr.responseType = 'blob';
+		xhr.onload = function(e) {
+			var blob = xhr.response;
+			var fileName = Math.random() + ".mp4"
+			if (window.navigator && window.navigator.msSaveOrOpenBlob) { //IE
+				window.navigator.msSaveOrOpenBlob(blob, fileName);
+			} else { // for others
+				var url = window.URL.createObjectURL(blob);
+				const a = document.createElement('a');
+				a.style.display = 'none';
+				a.href = url;
+				a.download = fileName;
+				document.body.appendChild(a);
+				a.click();
+				window.URL.revokeObjectURL(url);
+			};
+		}
+		xhr.send()
 	}
 </script>
