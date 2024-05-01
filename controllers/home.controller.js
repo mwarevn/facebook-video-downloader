@@ -1,3 +1,10 @@
+var i18n = require("i18n");
+let lang = "en";
+const { URL } = require("url");
+const { Builder, By, Key, until } = require("selenium-webdriver");
+const axios = require("axios");
+const chrome = require("selenium-webdriver/chrome");
+
 function decodeSpecialCharacters(encodedLink) {
     let decodedLink = encodedLink
         .replace(/\\u0025/g, "%")
@@ -67,6 +74,16 @@ function decodeSpecialCharacters(encodedLink) {
         .replace(/\\u0028/g, "(")
         .replace(/\\u0029/g, ")");
     return decodedLink;
+}
+function generateRandomString(length) {
+    const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+    let result = "";
+
+    for (let i = 0; i < length; i++) {
+        result += characters.charAt(Math.floor(Math.random() * characters.length));
+    }
+
+    return result;
 }
 
 const getFacebookUrlFromRaw = (html) => {
@@ -142,15 +159,22 @@ const crawlTikTokVideoData = (video_url) => {
 
 class HomeController {
     index(req, res, next) {
-        res.render("home/index");
+        var langCode = req.params.lang;
+
+        i18n.setLocale(req, lang || langCode);
+        res.render("home/index", { lang: lang || langCode });
     }
 
     privateDownloadPage(req, res) {
-        res.render("home/private_download");
+        var langCode = req.params.lang;
+        i18n.setLocale(req, lang || langCode);
+        res.render("home/private_download", { lang: lang || langCode });
     }
 
     tiktokDownloadPage(req, res) {
-        res.render("home/tiktok");
+        var langCode = req.params.lang;
+        i18n.setLocale(req, lang || langCode);
+        res.render("home/tiktok", { lang: lang || langCode });
     }
 
     getPublicVideo(req, res, next) {
@@ -165,28 +189,117 @@ class HomeController {
         res.json(getFacebookUrlFromRaw(page_source) || { msg: "Error, can not find video source!" });
     }
 
-    getTikTokVideo(req, res) {
-        const video_url = req.body.video_url;
-        crawlTikTokVideoData(video_url)
-            .then((response) => response.text())
-            .then((response) => {
-                const jsonData = JSON.parse(
-                    response
-                        .split('__UNIVERSAL_DATA_FOR_REHYDRATION__" type="application/json">')[1]
-                        .split("</script>")[0]
-                );
+    // getTikTokVideo(req, res) {
+    //     const video_url = req.body.video_url;
+    //     const optionHeaders = {
+    //         headers: {
+    //             accept: "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
+    //             "accept-language": "vi,vi-VN;q=0.9,fr-FR;q=0.8,fr;q=0.7,en-US;q=0.6,en;q=0.5",
+    //             "cache-control": "max-age=0",
+    //             priority: "u=0, i",
+    //             "sec-ch-ua": '"Chromium";v="124", "Google Chrome";v="124", "Not-A.Brand";v="99"',
+    //             "sec-ch-ua-mobile": "?0",
+    //             "sec-ch-ua-platform": '"macOS"',
+    //             "sec-fetch-dest": "document",
+    //             "sec-fetch-mode": "navigate",
+    //             "sec-fetch-site": "same-origin",
+    //             "sec-fetch-user": "?1",
+    //             "upgrade-insecure-requests": "1",
+    //         },
+    //         referrerPolicy: "strict-origin-when-cross-origin",
+    //         body: null,
+    //         method: "GET",
+    //     };
+    //     crawlTikTokVideoData(video_url, optionHeaders)
+    //         .then((response) => response.text())
+    //         .then((response) => {
+    //             const jsonData = JSON.parse(
+    //                 response
+    //                     .split('__UNIVERSAL_DATA_FOR_REHYDRATION__" type="application/json">')[1]
+    //                     .split("</script>")[0]
+    //             );
 
-                const video = jsonData.__DEFAULT_SCOPE__["webapp.video-detail"].itemInfo.itemStruct.video;
+    //             const video = jsonData.__DEFAULT_SCOPE__["webapp.video-detail"].itemInfo.itemStruct.video;
 
-                if (video) {
-                    res.json(video);
-                } else {
-                    res.json({ msg: "Error, can not get video source!" });
-                }
-            })
-            .catch((err) => {
-                res.json({ msg: "Error, can not get video source!" });
+    //             if (video) {
+    //                 res.json(video);
+    //             } else {
+    //                 res.json({ msg: "Error, can not get video source!" });
+    //             }
+    //         })
+    //         .catch((err) => {
+    //             res.json({ msg: "Error, can not get video source!" });
+    //         });
+    // }
+
+    saveTmpBlob(req, res) {
+        const blob = req.body.blobUrl;
+
+        res.send("ok blob");
+    }
+
+    forceDownloadVideoTiktok() {}
+
+    async getTikTokVideo(req, res) {
+        var input_video_url = req.body.video_url;
+
+        let chromeOptions = new chrome.Options();
+        chromeOptions.addArguments("--headless");
+        // chromeOptions.addArguments("--disable-gpu");
+        chromeOptions.setUserPreferences({
+            "download.default_directory": __dirname.split("controllers")[0] + "public/tmp/videos",
+        });
+
+        const driver = new Builder().setChromeOptions(chromeOptions).forBrowser("chrome").build();
+
+        try {
+            const fileName = generateRandomString(28) + ".mp4";
+
+            console.log(fileName);
+            await driver.get(input_video_url);
+            await driver.wait(until.elementLocated(By.css("video")), 8000);
+
+            const videoTag = await driver.findElement(By.css("video"));
+            const videoSourceUrl = await videoTag.getAttribute("src");
+
+            await driver.executeScript(`
+                const videoElement = document.querySelector('video[crossorigin="use-credentials"]');
+
+                fetch(videoElement.src)
+                .then(response => response.blob())
+                .then(blob => {
+
+                    // Tạo một URL cho Blob object
+                    var blobUrl = window.URL.createObjectURL(blob);
+
+                    // Tạo một thẻ a ẩn để tải xuống
+                    var downloadLink = document.createElement('a');
+                    downloadLink.style.display = 'none';
+                    downloadLink.href = blobUrl;
+                    downloadLink.setAttribute('download', '${fileName}');
+                    document.body.appendChild(downloadLink);
+
+                    downloadLink.click();
+
+                    document.body.removeChild(downloadLink);
+                })
+                .catch(error => console.error('Error downloading video:', error))
+
+            `);
+
+            // driver.quit();
+
+            res.send({
+                link: `${process.env.HOST}/tmp/videos/${fileName}`,
             });
+
+            // const response = await axios.get(input_video_url, { responseType: 'stream' });
+
+            // res.setHeader('Content-Type', response.headers['content-type']);
+            // response.data.pipe(res);
+        } catch (error) {
+            res.send(123);
+        }
     }
 }
 

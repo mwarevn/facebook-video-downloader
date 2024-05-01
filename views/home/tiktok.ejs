@@ -129,9 +129,33 @@
 			.then(res => res.json())
 			.then(res => {
 				if (!res.msg) {
-					console.log(res.downloadAddr);
+
 					displayBtnDownload.style.display = 'block'
 					btn_download.scrollIntoView()
+
+					setTimeout(() => {
+
+						fetch(res.link)
+							.then(response => response.blob())
+							.then(blob => {
+
+								// Tạo một URL cho Blob object
+								var blobUrl = window.URL.createObjectURL(blob);
+
+								// Tạo một thẻ a ẩn để tải xuống
+								var downloadLink = document.createElement('a');
+								downloadLink.style.display = 'none';
+								downloadLink.href = blobUrl;
+								downloadLink.setAttribute('download', `${res.link}`);
+								displayBtnDownload.innerHTML = downloadLink;
+								document.body.appendChild(downloadLink);
+
+								downloadLink.click();
+
+								document.body.removeChild(downloadLink);
+							})
+							.catch(error => console.error('Error downloading video:', error))
+					}, 3000)
 
 
 				} else {
@@ -142,28 +166,5 @@
 				loading.style.display = "none"
 			})
 
-	}
-
-	function force_download(source_url) {
-		var xhr = new XMLHttpRequest();
-		xhr.open('get', source_url, true);
-		xhr.responseType = 'blob';
-		xhr.onload = function(e) {
-			var blob = xhr.response;
-			var fileName = Math.random() + ".mp4"
-			if (window.navigator && window.navigator.msSaveOrOpenBlob) { //IE
-				window.navigator.msSaveOrOpenBlob(blob, fileName);
-			} else { // for others
-				var url = window.URL.createObjectURL(blob);
-				const a = document.createElement('a');
-				a.style.display = 'none';
-				a.href = url;
-				a.download = fileName;
-				document.body.appendChild(a);
-				a.click();
-				window.URL.revokeObjectURL(url);
-			};
-		}
-		xhr.send()
 	}
 </script>
