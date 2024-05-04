@@ -4,18 +4,15 @@ var homeCtrl = require("../controllers/home.controller");
 
 // render pages
 
-homeRouter.get(
-    ["/facebook-private-video-downloader/:lang", "/facebook-private-video-downloader"],
-    homeCtrl.privateDownloadPage
-);
-homeRouter.get(["/tiktok-video-downloader/:lang", "/tiktok-video-downloader"], homeCtrl.tiktokDownloadPage);
-homeRouter.get(["/:lang", "/"], homeCtrl.index);
+homeRouter.get("/", (req, res) => res.redirect("/facebook-video-downloader"));
+
+homeRouter.get("/facebook-private-video-downloader", homeCtrl.facebookPrivateDownloadPage);
+homeRouter.get("/tiktok-video-downloader", homeCtrl.tiktokDownloadPage);
+homeRouter.get("/facebook-video-downloader", homeCtrl.facebookPublicDownloadPage);
 
 // handle get video source requests
-homeRouter.post("/save-tmp-blob", homeCtrl.saveTmpBlob);
-homeRouter.post("/get-public-video", homeCtrl.getPublicVideo);
-homeRouter.post("/get-private-video", homeCtrl.getPrivateVideo);
-homeRouter.post("/get-tiktok-video", homeCtrl.getTikTokVideo);
-homeRouter.post("/force-download-video-tiktok", homeCtrl.forceDownloadVideoTiktok);
+homeRouter.post("/get-details-tiktok-video", homeCtrl.getDetailsTikTokVideo);
+homeRouter.post("/get-public-facebook-video", homeCtrl.getPublicFacebookVideo);
+homeRouter.post("/get-private-facebook-video", homeCtrl.getPrivateFaceBookVideo);
 
 module.exports = homeRouter;

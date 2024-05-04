@@ -1,0 +1,23 @@
+{
+    "name": "Facebook Video Downloader",
+    "short_name": "FastSave.live",
+    "description": "Download Video Facebook, Download Video Tiktok, Photo,Gif , Pins Facebook to mobile, PC, or tablet with highest quality - 1st Facebook Downloader",
+    "icons": [
+        {
+            "src": "/images/banner.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/dev.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        }
+    ],
+    "orientation": "portrait",
+    "start_url": "/?utm_source=pwa",
+    "scope": "/?utm_source=pwa",
+    "display": "fullscreen",
+    "theme_color": "#de2c2c",
+    "background_color": "#de2c2c"
+}
