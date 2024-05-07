@@ -1,0 +1,36 @@
+User-agent: *
+Disallow: /admin/
+Disallow: /login/
+Disallow: /register/
+Disallow: /css/
+Disallow: /js/
+Disallow: /img/
+Allow: /
+Allow: /index.html
+Allow: /videos/
+Allow: /about/
+Allow: /contact/
+Allow: /terms/
+
+Sitemap: https://www.fastsave.live/sitemap.xml
+
+# Allow search engine bots to crawl subdirectories of /blog/
+Allow: /blog/
+Allow: /blog/*
+
+# Disallow crawling of paginated archives
+Disallow: /blog/page/*
+
+# Allow crawling of single blog posts
+Allow: /blog/[0-9]+/
+
+# Allow crawling of custom post types
+Allow: /product/[0-9]+/
+Allow: /category/[a-zA-Z0-9_-]+/
+
+# User-agent specific directives
+User-agent: Googlebot
+Allow: /private/
+
+User-agent: Bingbot
+Disallow: /disallow-bing/

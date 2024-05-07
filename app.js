@@ -4,10 +4,21 @@ var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 var partials = require("express-partials");
-
+var i18n = require("i18n");
+const glob = require("glob");
+const fs = require("fs");
 const routes = require("./routes");
 const os = require("os");
 var app = express();
+
+i18n.configure({
+    locales: ["vi", "en"],
+    directory: __dirname + "/language",
+    cookie: "lang",
+    header: "accept-language",
+});
+
+app.use(i18n.init);
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
