@@ -1,14 +1,12 @@
-const { Builder, By, Key, until } = require("selenium-webdriver");
-const chrome = require("selenium-webdriver/chrome");
 const { app } = require("../utils/common");
 var i18n = require("i18n");
 var glob = require("glob");
 var fs = require("fs");
-const language_dict = {};
+var language_dict = {};
+var puppeteer = require("puppeteer");
 
 glob.sync("./language/*.json").forEach(function (file) {
     let dash = file.split("/");
-    console.log(dash);
     if (dash.length == 2) {
         let dot = dash[1].split(".");
         if (dot.length == 2) {
@@ -18,7 +16,7 @@ glob.sync("./language/*.json").forEach(function (file) {
             });
         }
     } else {
-        console.log("fdfd");
+        console.log("Error, failed to create language files!");
     }
 });
 
@@ -92,16 +90,6 @@ function decodeSpecialCharacters(encodedLink) {
         .replace(/\\u0029/g, ")");
     return decodedLink;
 }
-function generateRandomString(length) {
-    const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-    let result = "";
-
-    for (let i = 0; i < length; i++) {
-        result += characters.charAt(Math.floor(Math.random() * characters.length));
-    }
-
-    return result;
-}
 
 const getFacebookUrlFromRaw = (html) => {
     let videos = {};
@@ -158,64 +146,21 @@ const getFacebookUrlFromRaw = (html) => {
 };
 
 const crawlFacebookVideoData = async (video_url) => {
-    return fetch(video_url, {
-        headers: {
-            accept: "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
-            "accept-language": "vi",
-            "cache-control": "max-age=0",
-            dpr: "2",
-            priority: "u=0, i",
-            "sec-ch-prefers-color-scheme": "light",
-            "sec-ch-ua": '"Chromium";v="124", "Google Chrome";v="124", "Not-A.Brand";v="99"',
-            "sec-ch-ua-full-version-list":
-                '"Chromium";v="124.0.6367.92", "Google Chrome";v="124.0.6367.92", "Not-A.Brand";v="99.0.0.0"',
-            "sec-ch-ua-mobile": "?0",
-            "sec-ch-ua-model": '""',
-            "sec-ch-ua-platform": '"macOS"',
-            "sec-ch-ua-platform-version": '"14.4.1"',
-            "sec-fetch-dest": "document",
-            "sec-fetch-mode": "navigate",
-            "sec-fetch-site": "same-origin",
-            "sec-fetch-user": "?1",
-            "upgrade-insecure-requests": "1",
-            "viewport-width": "674",
-        },
-        referrerPolicy: "strict-origin-when-cross-origin",
-        body: null,
-        method: "GET",
-    })
-        .then((response) => response.text())
-        .then((text) => {
-            return text.includes('<link rel="canonical" href="https://www.facebook.com/login/web/" />') ||
-                text.includes('id="login_form"')
-                ? { private: true }
-                : getFacebookUrlFromRaw(text);
-        })
-        .catch((err) => {
-            return false;
-        });
-};
-
-const crawlTikTokVideoData = (video_url) => {
-    return fetch(video_url, {
-        headers: {
-            accept: "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
-            "accept-language": "vi,vi-VN;q=0.9,fr-FR;q=0.8,fr;q=0.7,en-US;q=0.6,en;q=0.5",
-            "cache-control": "max-age=0",
-            priority: "u=0, i",
-            "sec-ch-ua": '"Google Chrome";v="118", "Chromium";v="118", "Not=A?Brand";v="24"',
-            "sec-ch-ua-mobile": "?0",
-            "sec-ch-ua-platform": '"Windows"',
-            "sec-fetch-dest": "document",
-            "sec-fetch-mode": "navigate",
-            "sec-fetch-site": "same-origin",
-            "sec-fetch-user": "?1",
-            "upgrade-insecure-requests": "1",
-        },
-        referrerPolicy: "strict-origin-when-cross-origin",
-        body: null,
-        method: "GET",
+    const browser = await puppeteer.launch({
+        headless: true,
+        executablePath:
+            __dirname.split("controllers")[0] +
+            "puppeteer/chrome/mac_arm-124.0.6367.91/chrome-mac-arm64/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing",
     });
+    const page = await browser.newPage();
+    await page.goto(video_url);
+    const content = await page.content();
+    const minimal_content = content.split("is_rss_podcast_video")[1].split("sequence_number")[0];
+    await browser.close();
+
+    return content.includes("www.facebook.com/login") && !content.includes("browser_native_sd_url")
+        ? { private: true }
+        : getFacebookUrlFromRaw(minimal_content);
 };
 
 const getLanguageCode = (req) => {
@@ -251,141 +196,18 @@ class HomeController {
         });
     }
 
-    // [GET] - /tiktok-video-downloader
-    tiktokDownloadPage(req, res) {
-        res.render("pages/tiktok_video_downloader");
-    }
-
     // [POST] - /get-public-facebook-video
     getPublicFacebookVideo(req, res, next) {
         const video_url = req.body.video_url;
         crawlFacebookVideoData(video_url)
             .then((response) => res.json(response))
-            .catch((err) => res.json({ msg: "Server Error, can not crawl video source" }));
+            .catch((err) => res.json({ msg: "Server Error, can not crawl video source" + err }));
     }
 
     // [POST] - /get-private-facebook-video
     getPrivateFaceBookVideo(req, res, next) {
         const page_source = req.body.page_source;
         res.json(getFacebookUrlFromRaw(page_source));
-    }
-
-    // [POST] - /get-details-tiktok-video
-    async getDetailsTikTokVideo(req, res) {
-        const video_url = req.body.video_url;
-
-        let chromeOptions = new chrome.Options();
-
-        chromeOptions.addArguments("--headless");
-        const driver = new Builder().setChromeOptions(chromeOptions).forBrowser("chrome").build();
-
-        // type swipe photo
-        if (video_url.includes("/photo/")) {
-            await driver.get("https://snaptik.app/");
-            await driver.wait(until.elementLocated(By.id("url")), 8000);
-
-            // Find the input field by its ID and input a value
-            const inputField = await driver.findElement(By.id("url"));
-            await inputField.sendKeys(video_url);
-
-            // Find the button element by its ID and click it
-            const button = await driver.findElement(By.css('button[aria-label="Get"]'));
-            await button.click();
-
-            await driver.wait(until.elementLocated(By.css('button[data-event="click_render"]')), 10000);
-
-            const descElement = await driver.wait(until.elementLocated(By.css(".video-title")), 10000);
-            const desc = await descElement.getText();
-            const coverElement = await driver.wait(until.elementLocated(By.id("thumbnail")), 10000);
-            const cover = await coverElement.getAttribute("src");
-
-            const btnRender = await driver.findElement(By.css('button[data-event="click_render"]'));
-            await btnRender.click();
-
-            const downloadLinkElement = await driver.wait(
-                until.elementLocated(By.css('a[data-event="download_mp4_render"].show')),
-                10000
-            );
-
-            const video_render = await downloadLinkElement.getAttribute("href");
-
-            await driver.wait(until.elementLocated(By.css('img[loading="lazy"]')), 10000);
-            const photosElement = await driver.findElements(By.css('img[loading="lazy"]'));
-            let photos = [];
-
-            for (let e of photosElement) {
-                let src = await e.getAttribute("src");
-                photos.push(src);
-            }
-
-            const video = {
-                desc,
-                cover,
-                video_render,
-                photos,
-                type: "photo",
-            };
-
-            res.json(video);
-            return;
-        }
-
-        // type video
-        crawlTikTokVideoData(video_url)
-            .then((response) => response.text())
-            .then((response) => {
-                let video;
-
-                try {
-                    const jsonData = JSON.parse(
-                        response
-                            .split('__UNIVERSAL_DATA_FOR_REHYDRATION__" type="application/json">')[1]
-                            .split("</script>")[0]
-                    );
-
-                    video = jsonData.__DEFAULT_SCOPE__["webapp.video-detail"].itemInfo.itemStruct;
-                } catch (error) {
-                    console.log("no data found!");
-                }
-
-                return video;
-            })
-            .then(async (video) => {
-                if (!video) {
-                    res.json({ msg: "Error, can not found video data!" });
-                    return;
-                }
-
-                try {
-                    await driver.get("https://snaptik.app/");
-                    await driver.wait(until.elementLocated(By.id("url")), 8000);
-
-                    // Find the input field by its ID and input a value
-                    const inputField = await driver.findElement(By.id("url"));
-                    await inputField.sendKeys(video_url);
-
-                    // Find the button element by its ID and click it
-                    const button = await driver.findElement(By.css('button[aria-label="Get"]'));
-                    await button.click();
-
-                    await driver.wait(until.elementLocated(By.css('a[data-event="server01_file"]')), 10000);
-
-                    const server01_file = await driver
-                        .findElement(By.css('a[data-event="server01_file"]'))
-                        .getAttribute("href");
-                    const server02_file = await driver
-                        .findElement(By.css('a[data-event="snaptik_file"]'))
-                        .getAttribute("href");
-
-                    res.json({ server01_file, server02_file, video });
-                } catch (error) {
-                    res.json({ msg: "Error when downlaoding: " + error });
-                    console.log("Error can not download video!");
-                }
-            })
-            .catch((err) => {
-                res.json({ msg: "Error, can not get video source!" });
-            });
     }
 }
 

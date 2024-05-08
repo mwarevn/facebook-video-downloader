@@ -181,6 +181,7 @@
 
 					if (!responseJson || Object.keys(responseJson).length <= 0) {
 						alert.show("Error, Failed to get download link!")
+						loading.hide()
 						return;
 					}
 

@@ -1,39 +1,37 @@
 {
-	"name": "mwarevn",
-	"version": "1.0.0",
-	"main": "app.js",
-	"license": "ISC",
-	"description": "This is a simple project and template to learn how to use express and mongoose to build a simple web app.",
-	"keywords": [
-		"mwarevn",
-		"express",
-		"mongoose",
-		"template",
-		"ejs",
-		"mearn"
-	],
-	"author": {
-		"name": "mwarevn",
-		"url": "https://github.com/mwarevn"
-	},
-	"scripts": {
-		"start": "nodemon ./bin/www",
-		"test": "echo \"Error: no test specified\" && exit 1"
-	},
-	"dependencies": {
-		"cheerio": "^1.0.0-rc.12",
-		"cookie-parser": "~1.4.4",
-		"debug": "~2.6.9",
-		"dotenv": "^16.3.1",
-		"ejs": "^3.1.9",
-		"express": "^4.18.2",
-		"express-partials": "^0.3.0",
-		"glob": "^10.3.12",
-		"got": "^14.2.1",
-		"http-errors": "~1.6.3",
-		"i18n": "^0.15.1",
-		"morgan": "^1.10.0",
-		"nodemon": "^3.0.2",
-		"selenium-webdriver": "^4.20.0"
-	}
+    "name": "mwarevn",
+    "version": "1.0.0",
+    "main": "app.js",
+    "license": "ISC",
+    "description": "This is a simple project and template to learn how to use express and mongoose to build a simple web app.",
+    "keywords": [
+        "mwarevn",
+        "express",
+        "mongoose",
+        "template",
+        "ejs",
+        "mearn"
+    ],
+    "author": {
+        "name": "mwarevn",
+        "url": "https://github.com/mwarevn"
+    },
+    "scripts": {
+        "start": "nodemon ./bin/www",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "dependencies": {
+        "cookie-parser": "~1.4.4",
+        "debug": "~2.6.9",
+        "dotenv": "^16.3.1",
+        "ejs": "^3.1.9",
+        "express": "^4.18.2",
+        "express-partials": "^0.3.0",
+        "glob": "^10.3.12",
+        "http-errors": "~1.6.3",
+        "i18n": "^0.15.1",
+        "morgan": "^1.10.0",
+        "nodemon": "^3.0.2",
+        "puppeteer": "^22.8.0"
+    }
 }

@@ -8,13 +8,11 @@ homeRouter.get(
     ["/facebook-private-video-downloader", "/facebook-private-video-downloader/:code"],
     homeCtrl.facebookPrivateDownloadPage
 );
+
 homeRouter.get(["/:code", "/"], homeCtrl.facebookPublicDownloadPage);
 
-// homeRouter.get("/tiktok-video-downloader", homeCtrl.tiktokDownloadPage);
-
-// handle get video source requests
-// homeRouter.post("/get-details-tiktok-video", homeCtrl.getDetailsTikTokVideo);
 homeRouter.post("/get-public-facebook-video", homeCtrl.getPublicFacebookVideo);
+
 homeRouter.post("/get-private-facebook-video", homeCtrl.getPrivateFaceBookVideo);
 
 module.exports = homeRouter;
