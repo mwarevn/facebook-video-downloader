@@ -148,14 +148,18 @@ const getFacebookUrlFromRaw = (html) => {
 const crawlFacebookVideoData = async (video_url) => {
     const browser = await puppeteer.launch({
         headless: true,
-        executablePath:
-            __dirname.split("controllers")[0] +
-            "puppeteer/chrome/mac_arm-124.0.6367.91/chrome-mac-arm64/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing",
     });
     const page = await browser.newPage();
     await page.goto(video_url);
     const content = await page.content();
-    const minimal_content = content.split("is_rss_podcast_video")[1].split("sequence_number")[0];
+    let minimal_content = content;
+
+    try {
+        minimal_content = content.split("is_rss_podcast_video")[1].split("sequence_number")[0];
+    } catch (error) {
+        console.log("Error, can not get minimal content!" + error);
+    }
+
     await browser.close();
 
     return content.includes("www.facebook.com/login") && !content.includes("browser_native_sd_url")
