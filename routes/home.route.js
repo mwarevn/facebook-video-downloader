@@ -5,9 +5,12 @@ var homeCtrl = require("../controllers/home.controller");
 // render pages
 
 homeRouter.get(
-    ["/facebook-private-video-downloader", "/facebook-private-video-downloader/:code"],
-    homeCtrl.facebookPrivateDownloadPage
+	["/facebook-private-video-downloader", "/facebook-private-video-downloader/:code"],
+	homeCtrl.facebookPrivateDownloadPage
 );
+
+homeRouter.get(["/older-version/:code", "/older-version/"], homeCtrl.olderVersion);
+
 
 homeRouter.get(["/:code", "/"], homeCtrl.facebookPublicDownloadPage);
 

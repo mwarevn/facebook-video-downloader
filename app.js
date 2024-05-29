@@ -5,20 +5,116 @@ var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 var partials = require("express-partials");
 var i18n = require("i18n");
-const glob = require("glob");
-const fs = require("fs");
-const routes = require("./routes");
-const os = require("os");
+var routes = require("./routes");
+var os = require("os");
+var cors = require("cors");
 var app = express();
+var { rateLimit } = require("express-rate-limit");
 
-i18n.configure({
-    locales: ["vi", "en"],
-    directory: __dirname + "/language",
-    cookie: "lang",
-    header: "accept-language",
+const telegram_bot_controller = require("./controllers/telegram.bot.controller");
+var TGBot = require('./bot/TGBot')
+
+const limiter = rateLimit({
+  windowMs: 3000,
+  limit: 5,
+  handler: function (req, res, next) {
+    next(createError(429, "Quý khách zui lòng thao tác chậmmmmmm lại :)"));
+    // res.status(429).send("<script>alert('Quý khách zui lòng thao tác chậmmmmmm lại :)')</script>");
+  },
 });
 
+const whitelist = ["https://fastsave.live"];
+const corsOptions = {
+  origin: function (origin, callback) {
+    if (whitelist.indexOf(origin) !== -1 || !origin) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+};
+
+i18n.configure({
+  locales: [
+    "af",
+    "ga",
+    "sq",
+    "it",
+    "ar",
+    "ja",
+    "az",
+    "kn",
+    "eu",
+    "ko",
+    "bn",
+    "la",
+    "be",
+    "lv",
+    "bg",
+    "lt",
+    "ca",
+    "mk",
+    "zh-CN",
+    "ms",
+    "zh-TW",
+    "mt",
+    "hr",
+    "no",
+    "cs",
+    "fa",
+    "da",
+    "pl",
+    "nl",
+    "pt",
+    "en",
+    "ro",
+    "eo",
+    "ru",
+    "et",
+    "sr",
+    "tl",
+    "sk",
+    "fi",
+    "sl",
+    "fr",
+    "es",
+    "gl",
+    "sw",
+    "ka",
+    "sv",
+    "de",
+    "ta",
+    "el",
+    "te",
+    "gu",
+    "th",
+    "ht",
+    "tr",
+    "iw",
+    "uk",
+    "hi",
+    "ur",
+    "hu",
+    "vi",
+    "is",
+    "cy",
+    "id",
+    "yi",
+  ],
+  directory: __dirname + "/language",
+  cookie: "lang",
+  header: "accept-language",
+});
+// i18n.init({
+//   interpolation: {
+//     escapeValue: false,
+//   },
+// });
 app.use(i18n.init);
+app.use(cors(corsOptions));
+app.set("trust proxy", 1);
+app.use(limiter);
+app.use(cors());
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
@@ -37,12 +133,12 @@ const networkInterfaces = os.networkInterfaces();
 // Duyệt qua danh sách và lấy ra địa chỉ IPv4
 let serverIP = null;
 Object.keys(networkInterfaces).forEach((interfaceName) => {
-    const interfaces = networkInterfaces[interfaceName];
-    interfaces.forEach((interfaceInfo) => {
-        if (interfaceInfo.family === "IPv4" && !interfaceInfo.internal) {
-            serverIP = interfaceInfo.address;
-        }
-    });
+  const interfaces = networkInterfaces[interfaceName];
+  interfaces.forEach((interfaceInfo) => {
+    if (interfaceInfo.family === "IPv4" && !interfaceInfo.internal) {
+      serverIP = interfaceInfo.address;
+    }
+  });
 });
 
 console.log("=====================================");
@@ -54,18 +150,20 @@ routes(app);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
-    next(createError(404));
+  next(createError(404));
 });
 
 // error handler
 app.use(function (err, req, res, next) {
-    // set locals, only providing error in development
-    res.locals.message = err.message;
-    res.locals.error = req.app.get("env") === "development" ? err : {};
+  // set locals, only providing error in development
+  res.locals.message = err.message;
+  res.locals.error = req.app.get("env") === "development" ? err : {};
 
-    // render the error page
-    res.status(err.status || 500);
-    res.render("error");
+  // render the error page
+  res.status(err.status || 500);
+  res.render("error");
 });
+
+telegram_bot_controller(TGBot.bot, TGBot.token);
 
 module.exports = app;

@@ -1,458 +1,202 @@
 <!DOCTYPE html>
-<html lang="vi" data-theme="emerald">
-
-<head>
-	<meta charset="UTF-8">
-	<link rel="icon" href="<%= WEBSITE_URL %>/images/dev.png">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Trình tải video Facebook riêng tư | Tải video Facebook miễn phí</title>
-
-	<meta name="google" content="notranslate" />
-	<link rel="shorcut icon" href="<%= WEBSITE_URL %>/images/dev.png">
-	<link rel="alternate" hreflang="x-default" href="<%= WEBSITE_URL %>">
-	<meta name="description" content="Tải video riêng tư từ Facebook miễn phí, nhanh chóng và dễ dàng với FastSave.live! Hỗ trợ nhiều thiết bị và chất lượng cao.">
-	<meta name="keywords" content="tải video Facebook riêng tư, video downloader, download video Facebook, mwarevn, tải video riêng tư">
-	<meta name="robots" content="noindex, nofollow">
-	<meta property="og:title" content="Trình tải video từ Facebook | Tải video từ Facebook riêng tư">
-	<meta property="og:description" content="Tải video riêng tư từ Facebook miễn phí, nhanh chóng và dễ dàng với FastSave.live! Hỗ trợ nhiều thiết bị và chất lượng cao.">
-	<meta property="og:image" content="<%= WEBSITE_URL %>/images/banner.png">
-	<meta property="og:url" content="<%= WEBSITE_URL %>">
-	<meta property="og:type" content="website">
-	<meta name="twitter:title" content="Trình tải video từ Facebook | Tải video từ Facebook riêng tư">
-	<meta name="twitter:description" content="Tải video riêng tư từ Facebook miễn phí, nhanh chóng và dễ dàng với FastSave.live! Hỗ trợ nhiều thiết bị và chất lượng cao.">
-	<meta name="twitter:image" content="<%= WEBSITE_URL %>/images/banner.png">
-	<meta name="twitter:card" content="<%= WEBSITE_URL %>/images/banner.png">
-	<link rel="canonical" href="<%= WEBSITE_URL %>/facebook-private-video-downloader">
-	<link rel="apple-touch-icon" href="<%= WEBSITE_URL %>/images/dev.png">
-
-	<script type="application/ld+json">
-		{
-			"@context": "https://schema.org",
-			"@type": "WebSite",
-			"name": "FastSave",
-			"url": "<%= WEBSITE_URL %>",
-			"searchKeywords": ["Tải video từ Facebook", "Facebook Private Video Downloader", "Tải video miễn phí", "Tải video chất lượng cao", "Tải video nhanh chóng", "Tải video dễ dàng", "Công cụ tải video Facebook", "Trang web tải video Facebook", "Dịch vụ tải video Facebook", "mwarevn", "tải video riêng tư"],
-			"image": "<%= WEBSITE_URL %>/images/dev.png",
-			"potentialAction": {
-				"@type": "SearchAction",
-				"target": "<%= WEBSITE_URL %>/search?q={searchTerms}"
-			}
-		}
-	</script>
-
-
-	<script src="https://cdn.tailwindcss.com"></script>
-	<link href="https://cdn.jsdelivr.net/npm/daisyui@4.10.5/dist/full.min.css" rel="stylesheet" type="text/css" />
-	<style>
-		* {
-			scroll-behavior: smooth;
-		}
-	</style>
-</head>
-
-<body class="font-sans " style="background-color: #FFF;">
-
-
-	<header class="border-b-2 py-3">
-		<div class="container mx-auto px-8 md:w-3/4 sm:w-full">
-			<nav class="flex justify-between items-center">
-				<a href="/" class="space-x-6 font-bold text-xl">FastSave</a>
-				<div class="language-switcher text-sm">
-					<a href="/facebook-private-video-downloader/vi">Tiếng Việt</a> | <a href="/facebook-private-video-downloader/en">English</a>
-				</div>
-
-			</nav>
-		</div>
-	</header>
-
-	<main class="py-8 container mx-auto">
-		<div class="container mx-auto px-4">
-
-			<!-- Video download -->
-			<section class="bg-white rounded-lg p-0 mb-8 mt-32 md:w-3/4 sm:w-full mx-auto">
-				<h1 class="text-4xl font-bold mb-4 text-center">Facebook <small class="text-warning">Private</small> Video Downloader</h1>
-				<b class="text-center block">Download private video on Facebook 1080p - 2K - 4K. Free. All devices</b>
-				<div class="flex justify-center mt-14">
-					<div class="w-full">
-
-						<div class="w-full mb-4">
-							<div class="label">
-								<span class="label-text"><b>Bước 1: </b>Dán url video facebook vào đây.</span>
-							</div>
-							<div class=" w-full join mx-auto rounded rounded-0 relative">
-								<span class="loading loading-ring loading-lg absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2" hidden></span>
-								<input id="input-url" type="text" placeholder="Dán đường link video facebook tại đây..." class="border border-gray-300 join-item px-4 py-2 w-full focus:outline-none focus:border-blue-500">
-								<button class="btn-paste-clipboard btn btn-square btn-outline-none border border-1 border-l-0 bg-base-100 join-item tooltip flex justify-center items-center" data-tip="Paste from clipboard">
-									<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-										<path stroke-linecap="round" stroke-linejoin="round" d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 0 0 2.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 0 0-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 0 0 .75-.75 2.25 2.25 0 0 0-.1-.664m-5.8 0A2.251 2.251 0 0 1 13.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25ZM6.75 12h.008v.008H6.75V12Zm0 3h.008v.008H6.75V15Zm0 3h.008v.008H6.75V18Z" />
-									</svg>
-
-								</button>
-							</div>
-						</div>
-
-						<div class="mb-4">
-							<div class="label">
-								<span class="label-text"><b>Bước 2: </b>Đi tới trang web bên dưới rồi copy toàn bộ nội dung bên trong rồi quay lại trang download hiện tại.</span>
-							</div>
-							<input disabled id="url-page-source" type="text" placeholder="Đi tới trang web này..." class="border border-gray-300 px-4 py-2 w-full focus:outline-none focus:border-blue-500">
-						</div>
-
-						<div class="mb-4">
-							<div class="label">
-								<span class="label-text"><b>Bước 3: </b>Dán toàn bộ nội dung mà bạn vừa copy được vào bên dưới đây rồi bấm download.</span>
-							</div>
-							<textarea id="input-page-source" class="textarea h-48 border border-1 rounded rounded-0 border-gray-300 px-4 py-2 w-full focus:outline-none focus:border-blue-500" placeholder="Dán nội dung mà bạn copy được vào đây..."></textarea>
-						</div>
-
-						<button type="button" class="btn-get-link-download btn btn-secondary px-6  py-2 btn-wide mx-auto block">Download</button>
-					</div>
-				</div>
-			</section>
-
-			<!-- Display result .... -->
-			<section class="md:w-3/4 sm:w-full mx-auto mb-8">
-				<!-- alert -->
-				<div role="alert" class="alert alert-warning p-2 rounded rounded-0" hidden>
-					<svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24">
-						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
-					</svg>
-					<span class="alert-content"></span>
-				</div>
-
-				<div class="overflow-x-auto">
-					<small class="text-center my-2 block text-secondary">Đối với các video có độ phân giải cao chúng tôi cần phải tải audio và video riêng biệt rồi render nên sẽ mất chút thời gian!</small>
-					<table class="table">
-						<thead hidden>
-							<tr>
-								<th>#</th>
-								<th>Quality</th>
-								<th>Render</th>
-								<th>Download</th>
-							</tr>
-						</thead>
-						<tbody></tbody>
-					</table>
-				</div>
-
-
-			</section>
-			<script>
-				const $ = document.querySelector.bind(document);
-				const $$ = document.querySelectorAll.bind(document);
-
-				const alertElement = $('div[role="alert"]'),
-					alertContent = $('.alert-content'),
-					inputUrl = $('#input-url'),
-					btnPasteClipboard = $('.btn-paste-clipboard'),
-					btnGetLinkDownload = $('.btn-get-link-download'),
-					loadingElement = $('.loading'),
-					tbody = $('tbody'),
-					table = $('table'),
-					thead = $('thead'),
-					urlPageSource = $('#url-page-source'),
-					inputPageSource = $('#input-page-source')
-
-				inputUrl.oninput = () => {
-					if (isValidURL(inputUrl.value)) {
-						urlPageSource.value = 'view-source:' + inputUrl.value
-					} else {
-						alert.show('Vui lòng điền đúng url video facebook')
-						return;
-					}
-				}
-
-
-
-				btnGetLinkDownload.onclick = async () => {
-
-					let pageSource = inputPageSource.value.trim();
-
-					tb.hide()
-					alert.hide()
-					loading.show();
-
-					if (!pageSource || pageSource == '') {
-						loading.hide();
-						alert.show('Vui lòng dán nội dung copy!')
-						return;
-					}
-
-					pageSource = pageSource.split('is_rss_podcast_video')[1].split('sequence_number')[0];
-
-					let data = await fetch("/get-private-facebook-video", {
-						method: "POST",
-						headers: {
-							"Content-Type": "application/json",
-						},
-						body: JSON.stringify({
-							page_source: pageSource
-						}),
-					})
-
-					let responseJson = await data.json();
-
-					if (!responseJson || Object.keys(responseJson).length <= 0) {
-						alert.show("Error, Failed to get download link!")
-						return;
-					}
-
-					let index = 0;
-					tbody.innerHTML = Object.keys(responseJson).map((e, i) => {
-
-						if (e == "fullhd" || e == "audio") return ''
-
-							++index;
-						return `
-                                <tr>
-                                    <th>${index}</th>
-                                    <td>${responseJson[e].quality}</td>
-                                    <td>${responseJson[e].render}</td>
-                                    <td><a class="btn btn-primary py-0 btn-sm rounded rounded-0 text-white" href="${responseJson[e].url}" download="${responseJson[e].url}">Download</a></td>
-                                </tr>
-                            `;
-					}).join('')
-
-					tb.show()
-					loading.hide()
-					inputPageSource.scrollIntoView()
-				}
-
-				const tb = {
-					show: function() {
-						table.hidden = null;
-						thead.hidden = null
-					},
-					hide: function() {
-						table.hidden = 'true';
-						thead.hidden = "true";
-						tbody.innerHTML = null
-					}
-				}
-
-				// handle paste from clipboard
-				btnPasteClipboard.addEventListener('click', (e) => {
-					if (navigator.clipboard) {
-						const handlePaste = async () => {
-							try {
-								const permission = await navigator.permissions.query({
-									name: 'clipboard-read'
-								});
-
-								if (permission.state === 'granted') {
-									const clipboardData = await navigator.clipboard.readText();
-									inputUrl.value = clipboardData;
-								} else {
-									alert.show('Permission to access clipboard denied');
-								}
-							} catch (error) {
-								console.error('Error accessing clipboard:', error);
-							}
-						};
-						document.addEventListener('paste', handlePaste);
-					} else {
-						alert.show('Clipboard API is not supported by this browser');
-					}
-
-				})
-
-				// handle alert 
-				const alert = {
-					show: function(msg = 'unknown error!') {
-						alertElement.hidden = null
-						alertContent.textContent = msg
-					},
-					hide: function() {
-						alertElement.hidden = 'true'
-					}
-				}
-
-				// validate input url
-				const isValidURL = (url) => {
-					// Regular expression to validate URL format
-					const urlPattern = /^(https?:\/\/)?(www\.)?([\w-]+\.)+[\w]{2,}(\/\S*)?$/;
-
-					// Test if the URL matches the pattern
-					if (!urlPattern.test(url)) {
-						return false; // URL format is invalid
-					}
-
-					// Remove whitespace and trailing slash from the URL
-					url = url.trim().replace(/\/+$/, '');
-
-					// List of accepted domains
-					const acceptedDomains = ['fb.com', 'facebook.com', 'fb.watch'];
-
-					// Get the hostname from the URL
-					const urlHostname = new URL(url).hostname;
-
-					// Check if the URL hostname is one of the accepted domains
-					const isValidDomain = acceptedDomains.some(domain => {
-						return urlHostname.includes(domain);
-					});
-
-					return isValidDomain;
-				}
-
-				// display loading effect
-				const loading = {
-					show: function() {
-						inputPageSource.disabled = 'true'
-						btnGetLinkDownload.disabled = 'true';
-						btnPasteClipboard.disabled = 'true';
-						inputUrl.disabled = 'true';
-						loadingElement.hidden = null
-					},
-					hide: function() {
-						inputPageSource.disabled = null
-						btnGetLinkDownload.disabled = null;
-						btnPasteClipboard.disabled = null;
-						inputUrl.disabled = null;
-						loadingElement.hidden = 'true'
-					}
-				}
-			</script>
-
-
-			<!-- Phần Giới thiệu công cụ -->
-			<section class="bg-white rounded-lg p-6  md:w-3/4 sm:w-full mx-auto" style="background-color: #f4f5fc;">
-				<h3 class="text-2xl font-bold mt-2 mb-6 text-center">Giới thiệu về <span class="text-blue-500s text-warning">FastSave</span></h3>
-				<ol class="list-decimal ml-6 mb-4">
-					<li>
-						<p class="mb-4 px-4">FastSave.live cung cấp công cụ trực tuyến miễn phí giúp người dùng tải xuống video từ Facebook một cách dễ dàng và nhanh chóng. Với Facebook Video Downloader, bạn có thể tải về bất kỳ video nào từ Facebook, bao gồm video cá nhân, video trang, video từ nhóm, và nhiều hơn nữa.</p>
-
-					</li>
-					<li>
-						<p class="mb-4 px-4">Công cụ này hoạt động trực tiếp trên trình duyệt web của bạn, không yêu cầu cài đặt phần mềm hoặc tiện ích mở rộng. Bạn chỉ cần dán đường link video Facebook bạn muốn tải xuống vào ô nhập liệu, nhấn nút "Tải xuống", và công việc của bạn là xong.</p>
-
-					</li>
-					<li>
-						<p class="mb-4 px-4">Với giao diện đơn giản và dễ sử dụng, FastSave.live là công cụ lý tưởng cho mọi người muốn lưu trữ lại những video yêu thích từ Facebook để xem offline hoặc chia sẻ với bạn bè và gia đình.</p>
-
-					</li>
-					<li>
-						<p class="mb-4 px-4">Hãy trải nghiệm ngay Facebook Video Downloader trên FastSave.live và tận hưởng sự thuận tiện mà công cụ này mang lại!</p>
-
-					</li>
-				</ol>
-			</section>
-
-			<!-- Introduce Tool -->
-			<section class="bg-white rounded-lg p-6  md:w-3/4 sm:w-full mx-auto mt-8">
-				<h3 class="text-2xl font-bold mt-2 mb-6 text-center">Hướng dẫn sử dụng <span class="text-blue-500s">Facebook <small class="text-warning">Private</small> Video Downloader</span></h3>
-				<p class="mb-4">Để tải video từ Facebook bằng Facebook Video Downloader, bạn chỉ cần làm theo các bước sau:</p>
-				<ol class="steps steps-vertical ml-6 mb-4">
-					<li class="step"> Truy cập vào Facebook và tìm video mà bạn muốn tải xuống.</li>
-					<li class="step"> Click chuột phải vào video đó và chọn "Sao chép địa chỉ liên kết video" (Copy video URL).</li>
-					<li class="step"> Quay lại trang web Facebook Video Downloader và dán đường link video đã sao chép vào ô nhập liệu.</li>
-					<li class="step"> Sau khi dán tool sẽ đưa ra một url mới. Đi tới url đó và copy toàn bộ nội dung rồi quay trở lại trang web Facebook Private Video Downloader.</li>
-					<li class="step"> Dán toàn bộ nội dung vừa copy được vào ô nhập thứ 3 rồi bấm tải xuống.</li>
-					<li class="step"> Khi tải xuống hoàn thành, video sẽ tự động lưu vào thiết bị của bạn.</li>
-				</ol>
-				<p class="mb-4"><b>Lưu ý</b> rằng bạn cần phải có kết nối Internet hoạt động để thực hiện quá trình tải video từ Facebook. Ngoài ra, hãy chắc chắn rằng bạn tuân thủ các quy định và điều khoản của Facebook khi sử dụng video từ nền tảng này.</p>
-				<p class="mb-4">Với Facebook Video Downloader, việc tải video từ Facebook trở nên đơn giản và tiện lợi hơn bao giờ hết. Hãy trải nghiệm ngay để tận hưởng những video yêu thích của bạn mọi lúc, mọi nơi!</p>
-			</section>
-
-			<!-- FAQs -->
-			<section class="bg-white rounded-lg p-6 mb-8 md:w-3/4 sm:w-full mx-auto shadow-lg">
-				<h2 class="text-2xl font-bold mt-2 mb-6 text-center ">Những câu hỏi thường gặp</h2>
-
-				<div itemscope itemtype="https://schema.org/FAQPage">
-					<div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-						<div tabindex="0" class="collapse collapse-arrow rounded rounded-0 my-2" style="background-color: #f4f5fc;">
-							<div class="collapse-title text-base font-bold font-medium text-blue-500" itemprop="name">
-								Tôi có thể tải video từ Facebook với chất lượng cao không?
-							</div>
-							<div class="collapse-content" itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-								<small tabindex="0" itemprop="text">Với Facebook Video Downloader, bạn có thể tải video từ Facebook với chất lượng tốt nhất có thể. Tuy nhiên, chất lượng của video tải xuống phụ thuộc vào chất lượng ban đầu của video trên Facebook.</small>
-							</div>
-						</div>
-					</div>
-
-					<div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-						<div tabindex="0" class="collapse collapse-arrow rounded rounded-0 my-2" style="background-color: #f4f5fc;">
-							<div class="collapse-title text-base font-bold font-medium text-blue-500" itemprop="name">
-								Facebook Video Downloader có an toàn không?
-							</div>
-							<div class="collapse-content" itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-								<small tabindex="0" itemprop="text">Chúng tôi cam kết rằng Facebook Video Downloader là một công cụ an toàn và không gây hại cho thiết bị của bạn. Công cụ của chúng tôi hoạt động trên trình duyệt web và không yêu cầu cài đặt bất kỳ phần mềm nào. Đồng thời, chúng tôi không thu thập hoặc lưu trữ bất kỳ dữ liệu cá nhân nào từ người dùng.</small>
-							</div>
-						</div>
-					</div>
-
-					<div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-						<div tabindex="0" class="collapse collapse-arrow rounded rounded-0 my-2" style="background-color: #f4f5fc;">
-							<div class="collapse-title text-base font-bold font-medium text-blue-500" itemprop="name">
-								Facebook Video Downloader có hoạt động trên tất cả các thiết bị không?
-							</div>
-							<div class="collapse-content" itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-								<small tabindex="0" itemprop="text">Có, Facebook Video Downloader hoạt động trên tất cả các thiết bị có kết nối Internet và trình duyệt web hỗ trợ như máy tính, điện thoại di động, máy tính bảng, và các thiết bị khác.</small>
-							</div>
-						</div>
-					</div>
-
-					<div itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-						<div tabindex="0" class="collapse collapse-arrow rounded rounded-0 my-2" style="background-color: #f4f5fc;">
-							<div class="collapse-title text-base font-bold font-medium text-blue-500" itemprop="name">
-								Tôi có thể sử dụng Facebook Video Downloader miễn phí không?
-							</div>
-							<div class="collapse-content" itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-								<small tabindex="0" itemprop="text">Vâng, Facebook Video Downloader hoàn toàn miễn phí và không yêu cầu đăng ký hoặc thanh toán bất kỳ khoản phí nào.</small>
-							</div>
-						</div>
-					</div>
-				</div>
-
-			</section>
-
-			<!-- About more -->
-			<section class="bg-white rounded-lg p-6 mb-8 md:w-3/4 sm:w-full mx-auto">
-
-				<h2 class="text-2xl font-bold mt-2 mb-6 text-center ">Thông tin thêm</h2>
-
-				<div itemscope itemtype="https://schema.org/ItemList">
-
-					<div itemscope itemprop="itemListElement" itemtype="https://schema.org/ListItem">
-						<div class="border border-gray-300 p-4 rounded-lg mb-4">
-							<h3 class="text-lg font-semibold mb-2">Tải video với chất lượng cao</h3>
-							<p itemprop="name">Với Facebook Video Downloader, bạn có thể tải video từ Facebook với chất lượng cao nhất có thể, giúp bạn trải nghiệm video một cách sắc nét và rõ ràng nhất.</p>
-						</div>
-					</div>
-
-					<div itemscope itemprop="itemListElement" itemtype="https://schema.org/ListItem">
-						<div class="border border-gray-300 p-4 rounded-lg mb-4">
-							<h3 class="text-lg font-semibold mb-2">Tải video một cách nhanh chóng và dễ dàng</h3>
-							<p itemprop="name">Facebook Video Downloader cung cấp một giao diện đơn giản và dễ sử dụng, giúp bạn tải video từ Facebook chỉ trong vài bước đơn giản, mà không cần cài đặt phần mềm phụ trợ.</p>
-						</div>
-					</div>
-
-					<div itemscope itemprop="itemListElement" itemtype="https://schema.org/ListItem">
-						<div class="border border-gray-300 p-4 rounded-lg mb-4">
-							<h3 class="text-lg font-semibold mb-2">Hỗ trợ nhiều định dạng và chất lượng</h3>
-							<p itemprop="name">Với Facebook Video Downloader, bạn có thể tải video từ Facebook với nhiều định dạng và chất lượng khác nhau, từ HD đến SD, phù hợp với nhu cầu và thiết bị của bạn.</p>
-						</div>
-					</div>
-
-					<div itemscope itemprop="itemListElement" itemtype="https://schema.org/ListItem">
-						<div class="border border-gray-300 p-4 rounded-lg">
-							<h3 class="text-lg font-semibold mb-2">An toàn và bảo mật</h3>
-							<p itemprop="name">Chúng tôi cam kết bảo vệ thông tin cá nhân của bạn và không lưu trữ bất kỳ dữ liệu nào liên quan đến video bạn tải xuống. Hãy yên tâm sử dụng Facebook Video Downloader mà không lo lắng về việc thông tin của bạn bị tiết lộ.</p>
-						</div>
-					</div>
-
-				</div>
-
-			</section>
-
-		</div>
-	</main>
-
-	<!-- Phần Footer -->
-	<footer class="bg-base-content py-4">
-		<div class="container mx-auto px-4">
-			<p class="text-white text-center">© 2024 <b><a href="https://github.com/mwarevn" target="_blank">mwarevn</a></b> - All rights reserved.</p>
-		</div>
-	</footer>
-</body>
-
-</html>
+<html data-theme=emerald lang=vi>
+<meta charset=UTF-8>
+<link href="<%= WEBSITE_URL %>/images/dev.png" rel=icon>
+<meta content="width=device-width,initial-scale=1" name=viewport>
+<title><%= __('og_title') %></title>
+<meta content=notranslate name=google>
+<link href="<%= WEBSITE_URL %>/images/dev.png" rel="shorcut icon">
+<link href="<%= WEBSITE_URL %>" rel=alternate hreflang=x-default>
+<link href="<%= WEBSITE_URL %>/vi" rel=alternate hreflang=vi>
+<link href="<%= WEBSITE_URL %>/en" rel=alternate hreflang=en>
+<meta content="<%= __('meta_description') %>" name=description>
+<meta content="<%= __('meta_keywords') %>" name=keywords>
+<meta content="index, follow" name=robots>
+<meta content="<%= __('og_title') %>" property=og:title>
+<meta content="<%= __('meta_description') %>" property=og:description>
+<meta content="<%= WEBSITE_URL %>/images/banner.png" property=og:image>
+<meta content="<%= WEBSITE_URL %>" property=og:url>
+<meta content=website property=og:type>
+<meta content="<%= __('og_title') %>" name=twitter:title>
+<meta content="<%= __('meta_description') %>" name=twitter:description>
+<meta content="<%= WEBSITE_URL %>/images/banner.png" name=twitter:image>
+<meta content="<%= WEBSITE_URL %>/images/banner.png" name=twitter:card>
+<link href="<%= canonical%>" rel=canonical>
+<link href="<%= WEBSITE_URL %>/images/dev.png" rel=apple-touch-icon>
+<script type=application/ld+json>
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "<%= __('title') %>",
+        "url": "<%= WEBSITE_URL %>",
+        "searchKeywords": [<%= __('searchKeywords') %>],
+        "image": "<%= WEBSITE_URL %>/images/dev.png",
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": "<%= WEBSITE_URL %>/search?q={searchTerms}"
+        }
+    }
+</script>
+<script src=https://cdn.tailwindcss.com></script>
+<link href=/stylesheets/styles.pure.private.css rel=stylesheet>
+<style>
+    * {
+        scroll-behavior: smooth
+    }
+</style>
+
+<body class=font-sans style=background-color:#fff>
+    <header class="border-b-2 py-3">
+        <div class="mx-auto md:w-3/4 sm:w-full container px-8">
+            <nav class="flex items-center justify-between"><a href=/ class="font-bold space-x-6 text-xl">FastSave</a>
+                <div class="language-switcher text-sm"><a href=/facebook-private-video-downloader/vi>Tiếng Việt</a> | <a href=/facebook-private-video-downloader/en>English</a></div>
+            </nav>
+        </div>
+    </header>
+    <article class="flex items-center justify-center ads-banner-h50 mt-14 w-full">
+        <script>
+            atOptions = {
+                key: "40ac03b1222cb2918279fa3135904cc1",
+                format: "iframe",
+                height: 50,
+                width: 320,
+                params: {}
+            };
+            document.addEventListener("DOMContentLoaded", () => {
+                var adsScript = document.createElement("script");
+                adsScript.src = "//www.topcreativeformat.com/40ac03b1222cb2918279fa3135904cc1/invoke.js";
+                adsScript.async = true;
+                document.querySelector('.ads-banner-h50').appendChild(adsScript);
+            })
+        </script>
+    </article>
+    <main class="mx-auto container py-8">
+        <div class="mx-auto container px-4">
+            <section class="rounded-lg bg-white md:w-3/4 mx-auto sm:w-full mb-8 p-0">
+                <h1 class="mb-4 font-bold text-4xl text-center">Facebook <small class=text-warning>Private</small> Video Downloader</h1><b class="text-center block">Download private video on Facebook 1080p - 2K - 4K. Free. All devices</b>
+                <div class="flex justify-center mt-14">
+                    <div class=w-full>
+                        <div class="mb-4 w-full">
+                            <div class=label><span class=label-text><b>Bước 1: </b>Dán url video facebook vào đây.</span></div>
+                            <div class="rounded-lg w-full rounded join relative"><input class="px-4 border border-gray-300 focus:border-blue-500 focus:outline-none py-2 w-full input input-bordered join-item" id=input-url placeholder="Dán đường link video facebook tại đây..."> <span class="-translate-x-1/2 -translate-y-1/2 absolute left-1/2 loading loading-lg loading-ring top-1/2 transform" hidden></span> <button class="flex items-center justify-center bg-base-100 border border-1 border-l-0 btn btn-outline-none btn-paste-clipboard btn-square join-item" data-tip="Paste from clipboard"><svg class="h-6 w-6" fill=none viewBox="0 0 24 24" xmlns=http://www.w3.org/2000/svg stroke=currentColor stroke-width=1.5>
+                                        <path d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 0 0 2.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 0 0-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 0 0 .75-.75 2.25 2.25 0 0 0-.1-.664m-5.8 0A2.251 2.251 0 0 1 13.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25ZM6.75 12h.008v.008H6.75V12Zm0 3h.008v.008H6.75V15Zm0 3h.008v.008H6.75V18Z" stroke-linecap=round stroke-linejoin=round />
+                                    </svg></button></div>
+                        </div>
+                        <div class=mb-4>
+                            <div class=label><span class=label-text><b>Bước 2: </b>Đi tới trang web bên dưới rồi copy toàn bộ nội dung bên trong rồi quay lại trang download hiện tại.</span></div><input class="rounded-lg border border-gray-300 focus:border-blue-500 focus:outline-none px-4 py-2 w-full input input-bordered" id=url-page-source placeholder="Đi tới trang web này..." disablesd>
+                        </div>
+                        <div class=mb-4>
+                            <div class=label><span class=label-text><b>Bước 3: </b>Dán toàn bộ nội dung mà bạn vừa copy được vào bên dưới đây rồi bấm download.</span></div><textarea class="rounded-lg border border-gray-300 focus:border-blue-500 focus:outline-none px-4 py-2 w-full border-1 h-48 rounded rounded-0 textarea textarea-bordered" id=input-page-source placeholder="Dán nội dung mà bạn copy được vào đây..."></textarea>
+                        </div><button class="mx-auto block btn btn-get-link-download btn-secondary btn-wide px-6 py-2" type=button>Download</button>
+                    </div>
+                </div>
+            </section>
+            <section class="mx-auto md:w-3/4 sm:w-full mb-8">
+                <div class="rounded rounded-0 alert alert-warning p-2" hidden role=alert><svg class="h-6 w-6 shrink-0 stroke-current" fill=none viewBox="0 0 24 24" xmlns=http://www.w3.org/2000/svg>
+                        <path d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" stroke-linecap=round stroke-linejoin=round stroke-width=2 />
+                    </svg> <span class=alert-content></span></div>
+                <div class=overflow-x-auto><small class="text-center block my-2 text-secondary">Đối với các video có độ phân giải cao chúng tôi cần phải tải audio và video riêng biệt rồi render nên sẽ mất chút thời gian!</small>
+                    <table class=table>
+                        <thead hidden>
+                            <tr>
+                                <th>#
+                                <th>Quality
+                                <th>Render
+                                <th>Download
+                        <tbody>
+                    </table>
+                </div>
+            </section>
+            <script src=./js/download.private.js defer></script>
+            <section class="rounded-lg bg-white md:w-3/4 mx-auto sm:w-full p-6" style=background-color:#f4f5fc>
+                <h3 class="font-bold text-center mb-6 mt-2 text-2xl">Giới thiệu về <span class="text-warning text-blue-500s">FastSave</span></h3>
+                <ol class="mb-4 ml-6 list-decimal">
+                    <li>
+                        <p class="mb-4 px-4">FastSave.live cung cấp công cụ trực tuyến miễn phí giúp người dùng tải xuống video từ Facebook một cách dễ dàng và nhanh chóng. Với Facebook Video Downloader, bạn có thể tải về bất kỳ video nào từ Facebook, bao gồm video cá nhân, video trang, video từ nhóm, và nhiều hơn nữa.
+                    <li>
+                        <p class="mb-4 px-4">Công cụ này hoạt động trực tiếp trên trình duyệt web của bạn, không yêu cầu cài đặt phần mềm hoặc tiện ích mở rộng. Bạn chỉ cần dán đường link video Facebook bạn muốn tải xuống vào ô nhập liệu, nhấn nút "Tải xuống", và công việc của bạn là xong.
+                    <li>
+                        <p class="mb-4 px-4">Với giao diện đơn giản và dễ sử dụng, FastSave.live là công cụ lý tưởng cho mọi người muốn lưu trữ lại những video yêu thích từ Facebook để xem offline hoặc chia sẻ với bạn bè và gia đình.
+                    <li>
+                        <p class="mb-4 px-4">Hãy trải nghiệm ngay Facebook Video Downloader trên FastSave.live và tận hưởng sự thuận tiện mà công cụ này mang lại!
+                </ol>
+            </section>
+            <section class="rounded-lg bg-white md:w-3/4 mx-auto sm:w-full p-6 mt-8">
+                <h3 class="font-bold text-center mb-6 mt-2 text-2xl">Hướng dẫn sử dụng <span class=text-blue-500s>Facebook <small class=text-warning>Private</small> Video Downloader</span></h3>
+                <p class=mb-4>Để tải video từ Facebook bằng Facebook Video Downloader, bạn chỉ cần làm theo các bước sau:
+                <ol class="mb-4 ml-6 steps steps-vertical">
+                    <li class=step>Truy cập vào Facebook và tìm video mà bạn muốn tải xuống.
+                    <li class=step>Click chuột phải vào video đó và chọn "Sao chép địa chỉ liên kết video" (Copy video URL).
+                    <li class=step>Quay lại trang web Facebook Video Downloader và dán đường link video đã sao chép vào ô nhập liệu.
+                    <li class=step>Sau khi dán tool sẽ đưa ra một url mới. Đi tới url đó và copy toàn bộ nội dung rồi quay trở lại trang web Facebook Private Video Downloader.
+                    <li class=step>Dán toàn bộ nội dung vừa copy được vào ô nhập thứ 3 rồi bấm tải xuống.
+                    <li class=step>Khi tải xuống hoàn thành, video sẽ tự động lưu vào thiết bị của bạn.
+                </ol>
+                <p class=mb-4><b>Lưu ý</b> rằng bạn cần phải có kết nối Internet hoạt động để thực hiện quá trình tải video từ Facebook. Ngoài ra, hãy chắc chắn rằng bạn tuân thủ các quy định và điều khoản của Facebook khi sử dụng video từ nền tảng này.
+                <p class=mb-4>Với Facebook Video Downloader, việc tải video từ Facebook trở nên đơn giản và tiện lợi hơn bao giờ hết. Hãy trải nghiệm ngay để tận hưởng những video yêu thích của bạn mọi lúc, mọi nơi!
+            </section>
+            <section class="rounded-lg bg-white md:w-3/4 mx-auto sm:w-full p-6 mb-8 shadow-lg">
+                <h2 class="font-bold text-center mb-6 mt-2 text-2xl">Những câu hỏi thường gặp</h2>
+                <div itemscope itemtype=https://schema.org/FAQPage>
+                    <div itemprop=mainEntity itemtype=https://schema.org/Question itemscope>
+                        <div class="rounded rounded-0 collapse collapse-arrow my-2" style=background-color:#f4f5fc tabindex=0>
+                            <div class="font-bold collapse-title font-medium text-base text-blue-500" itemprop=name>Tôi có thể tải video từ Facebook với chất lượng cao không?</div>
+                            <div class=collapse-content itemprop=acceptedAnswer itemtype=https://schema.org/Answer><small itemprop=text tabindex=0>Với Facebook Video Downloader, bạn có thể tải video từ Facebook với chất lượng tốt nhất có thể. Tuy nhiên, chất lượng của video tải xuống phụ thuộc vào chất lượng ban đầu của video trên Facebook.</small></div>
+                        </div>
+                    </div>
+                    <div itemprop=mainEntity itemtype=https://schema.org/Question itemscope>
+                        <div class="rounded rounded-0 collapse collapse-arrow my-2" style=background-color:#f4f5fc tabindex=0>
+                            <div class="font-bold collapse-title font-medium text-base text-blue-500" itemprop=name>Facebook Video Downloader có an toàn không?</div>
+                            <div class=collapse-content itemprop=acceptedAnswer itemtype=https://schema.org/Answer><small itemprop=text tabindex=0>Chúng tôi cam kết rằng Facebook Video Downloader là một công cụ an toàn và không gây hại cho thiết bị của bạn. Công cụ của chúng tôi hoạt động trên trình duyệt web và không yêu cầu cài đặt bất kỳ phần mềm nào. Đồng thời, chúng tôi không thu thập hoặc lưu trữ bất kỳ dữ liệu cá nhân nào từ người dùng.</small></div>
+                        </div>
+                    </div>
+                    <div itemprop=mainEntity itemtype=https://schema.org/Question itemscope>
+                        <div class="rounded rounded-0 collapse collapse-arrow my-2" style=background-color:#f4f5fc tabindex=0>
+                            <div class="font-bold collapse-title font-medium text-base text-blue-500" itemprop=name>Facebook Video Downloader có hoạt động trên tất cả các thiết bị không?</div>
+                            <div class=collapse-content itemprop=acceptedAnswer itemtype=https://schema.org/Answer><small itemprop=text tabindex=0>Có, Facebook Video Downloader hoạt động trên tất cả các thiết bị có kết nối Internet và trình duyệt web hỗ trợ như máy tính, điện thoại di động, máy tính bảng, và các thiết bị khác.</small></div>
+                        </div>
+                    </div>
+                    <div itemprop=mainEntity itemtype=https://schema.org/Question itemscope>
+                        <div class="rounded rounded-0 collapse collapse-arrow my-2" style=background-color:#f4f5fc tabindex=0>
+                            <div class="font-bold collapse-title font-medium text-base text-blue-500" itemprop=name>Tôi có thể sử dụng Facebook Video Downloader miễn phí không?</div>
+                            <div class=collapse-content itemprop=acceptedAnswer itemtype=https://schema.org/Answer><small itemprop=text tabindex=0>Vâng, Facebook Video Downloader hoàn toàn miễn phí và không yêu cầu đăng ký hoặc thanh toán bất kỳ khoản phí nào.</small></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="rounded-lg bg-white md:w-3/4 mx-auto sm:w-full p-6 mb-8">
+                <h2 class="font-bold text-center mb-6 mt-2 text-2xl">Thông tin thêm</h2>
+                <div itemscope itemtype=https://schema.org/ItemList>
+                    <div itemprop=itemListElement itemtype=https://schema.org/ListItem itemscope>
+                        <div class="mb-4 border border-gray-300 p-4 rounded-lg">
+                            <h3 class="font-semibold mb-2 text-lg">Tải video với chất lượng cao</h3>
+                            <p itemprop=name>Với Facebook Video Downloader, bạn có thể tải video từ Facebook với chất lượng cao nhất có thể, giúp bạn trải nghiệm video một cách sắc nét và rõ ràng nhất.
+                        </div>
+                    </div>
+                    <div itemprop=itemListElement itemtype=https://schema.org/ListItem itemscope>
+                        <div class="mb-4 border border-gray-300 p-4 rounded-lg">
+                            <h3 class="font-semibold mb-2 text-lg">Tải video một cách nhanh chóng và dễ dàng</h3>
+                            <p itemprop=name>Facebook Video Downloader cung cấp một giao diện đơn giản và dễ sử dụng, giúp bạn tải video từ Facebook chỉ trong vài bước đơn giản, mà không cần cài đặt phần mềm phụ trợ.
+                        </div>
+                    </div>
+                    <div itemprop=itemListElement itemtype=https://schema.org/ListItem itemscope>
+                        <div class="mb-4 border border-gray-300 p-4 rounded-lg">
+                            <h3 class="font-semibold mb-2 text-lg">Hỗ trợ nhiều định dạng và chất lượng</h3>
+                            <p itemprop=name>Với Facebook Video Downloader, bạn có thể tải video từ Facebook với nhiều định dạng và chất lượng khác nhau, từ HD đến SD, phù hợp với nhu cầu và thiết bị của bạn.
+                        </div>
+                    </div>
+                    <div itemprop=itemListElement itemtype=https://schema.org/ListItem itemscope>
+                        <div class="rounded-lg border border-gray-300 p-4">
+                            <h3 class="font-semibold mb-2 text-lg">An toàn và bảo mật</h3>
+                            <p itemprop=name>Chúng tôi cam kết bảo vệ thông tin cá nhân của bạn và không lưu trữ bất kỳ dữ liệu nào liên quan đến video bạn tải xuống. Hãy yên tâm sử dụng Facebook Video Downloader mà không lo lắng về việc thông tin của bạn bị tiết lộ.
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+    <footer class="bg-base-content py-4">
+        <div class="mx-auto container px-4">
+            <p class="text-center text-white">© 2024 <b><a href=https://mwarevn.github.io target=_blank>mwarevn</a></b> - All rights reserved.
+        </div>
+    </footer>

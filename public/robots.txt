@@ -1,10 +1,10 @@
 User-agent: *
-Disallow: /admin/
-Disallow: /login/
-Disallow: /register/
-Disallow: /css/
-Disallow: /js/
-Disallow: /img/
+#Disallow: /admin/
+#Disallow: /login/
+#Disallow: /register/
+#Disallow: /css/
+#Disallow: /js/
+#Disallow: /img/
 Allow: /
 Allow: /index.html
 Allow: /videos/
@@ -18,8 +18,8 @@ Sitemap: https://www.fastsave.live/sitemap.xml
 Allow: /blog/
 Allow: /blog/*
 
-# Disallow crawling of paginated archives
-Disallow: /blog/page/*
+# #Disallow crawling of paginated archives
+#Disallow: /blog/page/*
 
 # Allow crawling of single blog posts
 Allow: /blog/[0-9]+/
@@ -33,4 +33,4 @@ User-agent: Googlebot
 Allow: /private/
 
 User-agent: Bingbot
-Disallow: /disallow-bing/
+#Disallow: /#disallow-bing/
