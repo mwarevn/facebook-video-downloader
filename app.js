@@ -12,7 +12,7 @@ var app = express();
 var { rateLimit } = require("express-rate-limit");
 
 const telegram_bot_controller = require("./controllers/telegram.bot.controller");
-var TGBot = require('./bot/TGBot')
+var TGBot = require("./bot/TGBot");
 
 const limiter = rateLimit({
   windowMs: 3000,
@@ -61,7 +61,6 @@ i18n.configure({
     "hr",
     "no",
     "cs",
-    "fa",
     "da",
     "pl",
     "nl",
@@ -70,9 +69,7 @@ i18n.configure({
     "ro",
     "eo",
     "ru",
-    "et",
     "sr",
-    "tl",
     "sk",
     "fi",
     "sl",
@@ -83,23 +80,15 @@ i18n.configure({
     "ka",
     "sv",
     "de",
-    "ta",
     "el",
-    "te",
-    "gu",
-    "th",
     "ht",
-    "tr",
     "iw",
-    "uk",
     "hi",
-    "ur",
     "hu",
     "vi",
     "is",
     "cy",
     "id",
-    "yi",
   ],
   directory: __dirname + "/language",
   cookie: "lang",

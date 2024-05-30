@@ -86,7 +86,7 @@ main {
 header {
   color: #fff;
   padding: 10px 0;
-  max-width: 1100px;
+  max-width: 1428px;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
@@ -111,7 +111,7 @@ h1 {
 form {
   margin: 0 auto;
   width: 95%;
-  max-width: 768px;
+  max-width: 1128px;
 }
 nav > ul {
   position: absolute;
@@ -272,7 +272,7 @@ figure:hover {
   background: red; */
   margin: 78px auto;
   width: 95%;
-  max-width: 1000px;
+  max-width: 1128px;
 }
 .rich-result.form-container {
   width: 100%;
@@ -291,7 +291,7 @@ figure:hover {
   padding: 14px;
   width: 95%;
   max-width: 340px;
-  height: 204.5px;
+  height: 239px;
   margin: 8px;
 }
 
@@ -309,7 +309,7 @@ figure:hover {
   padding: 0.5rem 1.5rem;
   border-radius: 16px;
   border: 1px solid #e3e3e3;
-  max-width: 980px;
+  max-width: 1128px;
   width: 95%;
   /* margin: 15vh auto 0; */
 }
@@ -319,6 +319,11 @@ figure:hover {
   color: #656565;
 }
 
+.card-container-tip h2 {
+  font-size: 13px;
+  margin-top: 8px;
+  font-weight: unset;
+}
 .private-tool {
   width: fit-content;
   margin: 0 auto;

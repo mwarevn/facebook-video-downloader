@@ -38,10 +38,53 @@
     }
 </script>
 <script src=https://cdn.tailwindcss.com></script>
-<link href=/stylesheets/styles.pure.private.css rel=stylesheet>
+<link href=stylesheets/styles.pure.private.css rel=stylesheet>
 <style>
     * {
         scroll-behavior: smooth
+    }
+
+    nav.menu>ul {
+        position: absolute;
+        list-style: none;
+        background: #2f2f2f;
+        padding: 12px;
+        border-radius: 16px;
+        left: -50px;
+        display: none;
+    }
+
+    nav.menu:hover ul {
+        display: block;
+        max-height: 500px;
+        z-index: 10;
+        overflow-y: scroll;
+    }
+
+    ::-webkit-scrollbar-track,
+    ::-webkit-scrollbar-corner,
+    ::-webkit-scrollbar,
+    ::-webkit-scrollbar-button {
+        width: 0;
+    }
+
+    nav.menu {
+        display: inline-block;
+        padding: 8px;
+        position: relative;
+    }
+
+    nav.menu>ul>li {
+        /* padding: 8px; */
+    }
+
+    nav.menu>ul>li>a {
+        color: #fff;
+        width: 100%;
+        height: 100%;
+        min-width: 100px;
+        display: block;
+        text-decoration: underline;
     }
 </style>
 
@@ -49,7 +92,71 @@
     <header class="border-b-2 py-3">
         <div class="mx-auto md:w-3/4 sm:w-full container px-8">
             <nav class="flex items-center justify-between"><a href=/ class="font-bold space-x-6 text-xl">FastSave</a>
-                <div class="language-switcher text-sm"><a href=/facebook-private-video-downloader/vi>Tiếng Việt</a> | <a href=/facebook-private-video-downloader/en>English</a></div>
+                <div class="language-switcher text-sm">
+
+                    <div class="language-switcher text-sm">
+                        <nav class="menu">
+                            <span>Languages</span>
+                            <ul>
+                                <li><a href="/facebook-private-video-downloader/af"> <%=__('Af') %> </a></li>
+                                <li><a href="/facebook-private-video-downloader/ga"> <%=__('Ga') %> </a></li>
+                                <li><a href="/facebook-private-video-downloader/sq"> <%=__('Sq') %> </a></li>
+                                <li><a href="/facebook-private-video-downloader/it"> <%=__('It') %> </a></li>
+                                <li><a href="/facebook-private-video-downloader/ar"> <%=__('Ar') %> </a></li>
+                                <li><a href="/facebook-private-video-downloader/ja"> <%=__('Ja') %> </a></li>
+                                <li><a href="/facebook-private-video-downloader/az"> <%=__('Az') %> </a></li>
+                                <li><a href="/facebook-private-video-downloader/kn"> <%=__('Kn') %> </a></li>
+                                <li><a href="/facebook-private-video-downloader/eu"> <%=__('Eu') %> </a></li>
+                                <li><a href="/facebook-private-video-downloader/ko"> <%=__('Ko') %> </a></li>
+                                <li><a href="/facebook-private-video-downloader/bn"> <%=__('Bn') %> </a></li>
+                                <li><a href="/facebook-private-video-downloader/la"> <%=__('La') %> </a></li>
+                                <li><a href="/facebook-private-video-downloader/be"> <%=__('Be') %> </a></li>
+                                <li><a href="/facebook-private-video-downloader/lv"> <%=__('Lv') %> </a></li>
+                                <li><a href="/facebook-private-video-downloader/bg"> <%=__('Bg') %> </a></li>
+                                <li><a href="/facebook-private-video-downloader/lt"> <%=__('Lt') %> </a></li>
+                                <li><a href="/facebook-private-video-downloader/ca"> <%=__('Ca') %> </a></li>
+                                <li><a href="/facebook-private-video-downloader/mk"> <%=__('Mk') %> </a></li>
+                                <li><a href="/facebook-private-video-downloader/zh-CN"> <%=__('ZhCn') %></a></li>
+                                <li><a href="/facebook-private-video-downloader/ms"> <%=__('Malay') %> </a></li>
+                                <li><a href="/facebook-private-video-downloader/zh-TW"> <%=__('ZhTw') %></a></li> -
+                                <li><a href="/facebook-private-video-downloader/mt"> <%=__('Mt') %> </a></li>
+                                <li><a href="/facebook-private-video-downloader/hr"> <%=__('Hr') %> </a></li>
+                                <li><a href="/facebook-private-video-downloader/no"> <%=__('No') %> </a></li>
+                                <li><a href="/facebook-private-video-downloader/cs"> <%=__('Cs') %> </a></li>
+                                <li><a href="/facebook-private-video-downloader/da"> <%=__('Da') %> </a></li>
+                                <li><a href="/facebook-private-video-downloader/pl"> <%=__('Pl') %> </a></li>
+                                <li><a href="/facebook-private-video-downloader/nl"> <%=__('Nl') %> </a></li>
+                                <li><a href="/facebook-private-video-downloader/pt"> <%=__('Pt') %> </a></li>
+                                <li><a href="/facebook-private-video-downloader/en"> <%=__('En') %> </a></li>
+                                <li><a href="/facebook-private-video-downloader/ro"> <%=__('Ro') %> </a></li>
+                                <li><a href="/facebook-private-video-downloader/eo"> <%=__('Eo') %> </a></li>
+                                <li><a href="/facebook-private-video-downloader/ru"> <%=__('Ru') %> </a></li>
+                                <li><a href="/facebook-private-video-downloader/sr"> <%=__('Sr') %> </a></li>
+                                <li><a href="/facebook-private-video-downloader/sk"> <%=__('Sk') %> </a></li>
+                                <li><a href="/facebook-private-video-downloader/fi"> <%=__('Fi') %> </a></li>
+                                <li><a href="/facebook-private-video-downloader/sl"> <%=__('Sl') %> </a></li>
+                                <li><a href="/facebook-private-video-downloader/fr"> <%=__('Fr') %> </a></li>
+                                <li><a href="/facebook-private-video-downloader/es"> <%=__('Es') %> </a></li>
+                                <li><a href="/facebook-private-video-downloader/gl"> <%=__('Gl') %> </a></li>
+                                <li><a href="/facebook-private-video-downloader/sw"> <%=__('Sw') %> </a></li>
+                                <li><a href="/facebook-private-video-downloader/ka"> <%=__('Ka') %> </a></li>
+                                <li><a href="/facebook-private-video-downloader/sv"> <%=__('Sv') %> </a></li>
+                                <li><a href="/facebook-private-video-downloader/de"> <%=__('De') %> </a></li>
+                                <li><a href="/facebook-private-video-downloader/el"> <%=__('El') %> </a></li>
+                                <li><a href="/facebook-private-video-downloader/ht"> <%=__('Ht') %> </a></li>
+                                <li><a href="/facebook-private-video-downloader/He"> <%=__('He') %> </a></li>
+                                <li><a href="/facebook-private-video-downloader/hi"> <%=__('Hi') %> </a></li>
+                                <li><a href="/facebook-private-video-downloader/hu"> <%=__('Hu') %> </a></li>
+                                <li><a href="/facebook-private-video-downloader/vi"> <%=__('Vi') %> </a></li>
+                                <li><a href="/facebook-private-video-downloader/is"> <%=__('Is') %> </a></li>
+                                <li><a href="/facebook-private-video-downloader/cy"> <%=__('Cy') %> </a></li>
+                                <li><a href="/facebook-private-video-downloader/id"> <%=__('Id') %> </a></li>
+                            </ul>
+                        </nav> | <a href="/">Home</a>
+
+                    </div>
+
+                </div>
             </nav>
         </div>
     </header>
@@ -107,7 +214,7 @@
                     </table>
                 </div>
             </section>
-            <script src=./js/download.private.js defer></script>
+            <script src=js/download.private.js defer></script>
             <section class="rounded-lg bg-white md:w-3/4 mx-auto sm:w-full p-6" style=background-color:#f4f5fc>
                 <h3 class="font-bold text-center mb-6 mt-2 text-2xl">Giới thiệu về <span class="text-warning text-blue-500s">FastSave</span></h3>
                 <ol class="mb-4 ml-6 list-decimal">

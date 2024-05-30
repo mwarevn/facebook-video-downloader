@@ -7,8 +7,7 @@
     <meta content="width=device-width,initial-scale=1" name=viewport>
     <title><%=__('WebsiteTitle') %></title>
     <meta name="google-adsense-account" content="ca-pub-5383842302083788">
-    <!-- <script defer src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5383842302083788"
-     crossorigin="anonymous"></script> -->
+    <script defer src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5383842302083788" crossorigin="anonymous"></script>
 
     <meta content=notranslate name=google>
     <link href="<%= WEBSITE_URL %>/images/dev.png" rel="shorcut icon">
@@ -34,20 +33,40 @@
     <meta content="<%= WEBSITE_URL %>/images/banner.png" name=twitter:card>
     <link href="<%= canonical%>" rel=canonical>
     <link href="<%= WEBSITE_URL %>/images/dev.png" rel=apple-touch-icon>
-    <script type=application/ld+json>
+
+    <script type="application/ld+json">
         {
-            "@context": "https://schema.org",
+            "@context": "http://schema.org",
             "@type": "WebSite",
             "name": "<%=__('WebsiteTitle') %>",
             "url": "<%=WEBSITE_URL%>",
+            "image": "<%=WEBSITE_URL%>/images/dev.png",
+            "description": "<%=__('WebsiteDesc') %>",
             "searchKeywords": ["facebook video downloader", "free facebook video downloader", "hd facebook video downloader", "private facebook video downloader", "fast facebook video downloader", "mwarevn"],
-            "image": "<%=WEBSITE_URL%>/images/dev.png"
+            "applicationCategory": "MultimediaApplication",
+            "operatingSystem": ["Android", "iOS", "Windows", "macOS", "Linux"],
+            "offers": {
+                "@type": "Offer",
+                "price": "0.00",
+                "priceCurrency": "USD"
+            },
+            "AggregateRating": {
+                "ratingCount": 10,
+                "reviewCount": 10,
+                "ratingValue": "4.6",
+                "itemReviewed": "Video Downloader for Facebook"
+            }
         }
     </script>
 
     <link rel="stylesheet" href="/stylesheets/dark.css" />
     <style>
-        ::-webkit-scrollbar,::-webkit-scrollbar-button,::-webkit-scrollbar-corner,::-webkit-scrollbar-track{width:0}
+        ::-webkit-scrollbar,
+        ::-webkit-scrollbar-button,
+        ::-webkit-scrollbar-corner,
+        ::-webkit-scrollbar-track {
+            width: 0
+        }
     </style>
 </head>
 
@@ -85,7 +104,6 @@
                     <li><a href="/hr"> <%=__('Hr') %> </a></li>
                     <li><a href="/no"> <%=__('No') %> </a></li>
                     <li><a href="/cs"> <%=__('Cs') %> </a></li>
-                    <li><a href="/fa"> <%=__('Fa') %> </a></li>
                     <li><a href="/da"> <%=__('Da') %> </a></li>
                     <li><a href="/pl"> <%=__('Pl') %> </a></li>
                     <li><a href="/nl"> <%=__('Nl') %> </a></li>
@@ -94,9 +112,7 @@
                     <li><a href="/ro"> <%=__('Ro') %> </a></li>
                     <li><a href="/eo"> <%=__('Eo') %> </a></li>
                     <li><a href="/ru"> <%=__('Ru') %> </a></li>
-                    <li><a href="/et"> <%=__('Et') %> </a></li>
                     <li><a href="/sr"> <%=__('Sr') %> </a></li>
-                    <li><a href="/tl"> <%=__('Fil') %> </a></li>
                     <li><a href="/sk"> <%=__('Sk') %> </a></li>
                     <li><a href="/fi"> <%=__('Fi') %> </a></li>
                     <li><a href="/sl"> <%=__('Sl') %> </a></li>
@@ -107,23 +123,15 @@
                     <li><a href="/ka"> <%=__('Ka') %> </a></li>
                     <li><a href="/sv"> <%=__('Sv') %> </a></li>
                     <li><a href="/de"> <%=__('De') %> </a></li>
-                    <li><a href="/ta"> <%=__('Ta') %> </a></li>
                     <li><a href="/el"> <%=__('El') %> </a></li>
-                    <li><a href="/te"> <%=__('Te') %> </a></li>
-                    <li><a href="/gu"> <%=__('Gu') %> </a></li>
-                    <li><a href="/th"> <%=__('Th') %> </a></li>
                     <li><a href="/ht"> <%=__('Ht') %> </a></li>
-                    <li><a href="/tr"> <%=__('Tr') %> </a></li>
                     <li><a href="/He"> <%=__('He') %> </a></li>
-                    <li><a href="/uk"> <%=__('Uk') %> </a></li>
                     <li><a href="/hi"> <%=__('Hi') %> </a></li>
-                    <li><a href="/ur"> <%=__('Ur') %> </a></li>
                     <li><a href="/hu"> <%=__('Hu') %> </a></li>
                     <li><a href="/vi"> <%=__('Vi') %> </a></li>
                     <li><a href="/is"> <%=__('Is') %> </a></li>
                     <li><a href="/cy"> <%=__('Cy') %> </a></li>
                     <li><a href="/id"> <%=__('Id') %> </a></li>
-                    <li><a href="/yi"> <%=__('Yi') %> </a></li>
                 </ul>
             </nav>
         </div>
@@ -185,6 +193,12 @@
             <section class="display-result" hidden></section>
         </div>
 
+        <!-- display alert -->
+        <div id="custom-alert" class="alert">
+            <span class="closebtn" onclick="closeAlert()">&times;</span>
+            <div class="alert-msg"></div>
+        </div>
+
         <!-- script -->
         <script defer>
             const elements = {
@@ -196,77 +210,77 @@
                 customAlert: document.getElementById("custom-alert"),
                 alertMsg: document.querySelector(".alert-msg"),
                 loader: document.querySelector(".loader"),
-                };
+            };
 
-                // Event delegation for inputUrl and iconArrowUp
-                document.addEventListener("input", function (event) {
+            // Event delegation for inputUrl and iconArrowUp
+            document.addEventListener("input", function(event) {
                 if (event.target === elements.inputUrl) {
                     handleInputUrl();
                 }
-                });
+            });
 
-                 // Event delegation for inputUrl and iconArrowUp
-                 document.addEventListener("paste", function (event) {
+            // Event delegation for inputUrl and iconArrowUp
+            document.addEventListener("paste", function(event) {
                 if (event.target === elements.inputUrl) {
                     handleInputUrl();
                 }
-                });
+            });
 
-                elements.iconArrowUp.addEventListener("click", function () {
+            elements.iconArrowUp.addEventListener("click", function() {
                 validateValueBeforeSubmit();
-                });
+            });
 
-                elements.btnPaste.addEventListener("click", function () {
+            elements.btnPaste.addEventListener("click", function() {
                 handlePaste();
-                });
+            });
 
-                elements.urlForm.addEventListener("submit", function (e) {
+            elements.urlForm.addEventListener("submit", function(e) {
                 e.preventDefault();
                 validateValueBeforeSubmit();
-                });
+            });
 
-                function handleInputUrl() {
+            function handleInputUrl() {
                 elements.iconArrowUp.style.background =
                     elements.inputUrl.value !== "" ? "#FFF" : "#676767";
                 elements.iconArrowUp.style.cursor =
                     elements.inputUrl.value !== "" ? "pointer" : "default";
-                }
+            }
 
-                function handlePaste() {
-                navigator.clipboard
-                    ? navigator.clipboard
-                        .readText()
-                        .then((text) => {
+            function handlePaste() {
+                navigator.clipboard ?
+                    navigator.clipboard
+                    .readText()
+                    .then((text) => {
                         elements.inputUrl.value = text;
                         closeAlert();
-                        })
-                        .catch(() => {
+                    })
+                    .catch(() => {
                         showAlert("Vui cấp quyền truy cập clipboard cho trang web!");
-                        })
-                    : showAlert("Trình duyệt không được hỗ trợ!");
-                }
+                    }) :
+                    showAlert("Trình duyệt không được hỗ trợ!");
+            }
 
-                function showAlert(msg) {
+            function showAlert(msg) {
                 elements.customAlert.style.display = "block";
                 elements.alertMsg.innerHTML = msg;
                 setTimeout(() => {
                     elements.customAlert.style.display = "none";
                 }, 2500);
-                }
+            }
 
-                function closeAlert() {
+            function closeAlert() {
                 elements.customAlert.style.display = "none";
-                }
+            }
 
-                function showLoader() {
+            function showLoader() {
                 elements.loader.removeAttribute("hidden");
-                }
+            }
 
-                function hideLoader() {
+            function hideLoader() {
                 elements.loader.setAttribute("hidden", "hidden");
-                }
+            }
 
-                function validateValueBeforeSubmit() {
+            function validateValueBeforeSubmit() {
                 elements.displayResult.innerHTML = "";
                 elements.displayResult.setAttribute("hidden", "");
 
@@ -276,27 +290,27 @@
 
                 if (regex.test(elements.inputUrl.value)) {
                     fetch("/get-public-facebook-video", {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
-                    body: JSON.stringify({
-                        video_url: elements.inputUrl.value,
-                    }),
-                    })
-                    .then((res) => res.json())
-                    .then((res) => {
-                        if (res.error || res.private) {
-                        showAlert(
-                            res.error || res.private ? "Video ở chế độ riêng tư !" : null
-                        );
-                        hideLoader();
-                        return;
-                        } else {
-                        let htmls = "";
-                        if (Object.keys(res).length > 0) {
-                            Object.keys(res).forEach((item) => {
-                            htmls += `
+                            method: "POST",
+                            headers: {
+                                "Content-Type": "application/json",
+                            },
+                            body: JSON.stringify({
+                                video_url: elements.inputUrl.value,
+                            }),
+                        })
+                        .then((res) => res.json())
+                        .then((res) => {
+                            if (res.error || res.private || res.msg) {
+                                showAlert(
+                                    res.error || res.private || res.msg
+                                );
+                                hideLoader();
+                                return;
+                            } else {
+                                let htmls = "";
+                                if (Object.keys(res).length > 0) {
+                                    Object.keys(res).forEach((item) => {
+                                        htmls += `
                                 <figure style="padding: 12px; margin: 0 8px; border-radius: 0.375rem">
                                     <div>
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="#FFF" width="32" height="32">
@@ -311,53 +325,55 @@
                                     </div>
                                 </figure>
                                 `;
-                            });
+                                    });
 
-                            elements.displayResult.innerHTML = htmls;
-                            elements.displayResult.removeAttribute("hidden");
-                        }
-                        }
-                    })
-                    .finally(() => {
-                        hideLoader();
-                    });
+                                    elements.displayResult.innerHTML = htmls;
+                                    elements.displayResult.removeAttribute("hidden");
+                                }
+                            }
+                        })
+                        .catch(() => {
+                            showAlert("Có lỗi xảy ra, vui lòng thử lại sau!");
+                        })
+                        .finally(() => {
+                            hideLoader();
+                        });
                 } else {
                     showAlert("Invalid, please paste facebook video url!");
                     hideLoader();
                 }
-                }
-
+            }
         </script>
 
         <!-- link to rich result -->
         <section class="card-container-tip">
-            <a href="#introduce-to-fastsave" style="text-decoration: none;" class="card-item">
+            <a href="#facebook-downloader" style="text-decoration: none;" class="card-item">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" class="icon-md" style="color: rgb(118, 208, 235)">
                     <path fill="currentColor" fill-rule="evenodd" d="M13.997 3.39A2.5 2.5 0 0 1 17.2 2.103l2.203.882a2.5 2.5 0 0 1 1.342 3.369L19.063 10H20a1 1 0 0 1 1 1v8a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3v-8a1 1 0 0 1 .992-1l-.149-.101-.03-.022c-1.254-.924-1.016-2.864.425-3.458l2.12-.874.724-2.176c.492-1.479 2.41-1.851 3.42-.665L11.99 4.45l1.521.01zm1.513 1.506a2 2 0 0 1 .461 2.618l-1.144 1.861v.045a1.3 1.3 0 0 0 .044.278 1 1 0 0 1 .047.302h1.942l2.07-4.485a.5.5 0 0 0-.268-.673l-2.203-.882a.5.5 0 0 0-.641.258zM12.889 10a3.3 3.3 0 0 1-.06-.499c-.01-.236-.004-.69.237-1.081l1.202-1.954-2.293-.016a2 2 0 0 1-1.51-.704L8.98 4l-.725 2.176A2 2 0 0 1 7.12 7.394L5 8.267l2.063 1.407c.129.087.23.2.303.326zM5 12v7a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-7zm4.5 2.5a1 1 0 0 1 1-1h3a1 1 0 1 1 0 2h-3a1 1 0 0 1-1-1" clip-rule="evenodd"></path>
                 </svg>
-                <div><%=__('Intro') %></div>
+                <h2><%=__('FbDownloader') %></h2>
             </a>
 
-            <a href="#how-to-use-fastsave" style="text-decoration: none;" class="card-item">
+            <a href="#download-facebook-video-sroty" style="text-decoration: none;" class="card-item">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" class="icon-md" style="color: #e2c541">
                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19a3 3 0 1 1-6 0M15.865 16A7.54 7.54 0 0 0 19.5 9.538C19.5 5.375 16.142 2 12 2S4.5 5.375 4.5 9.538A7.54 7.54 0 0 0 8.135 16m7.73 0h-7.73m7.73 0v3h-7.73v-3"></path>
                 </svg>
-                <div><%=__('HowToUse') %></div>
+                <h2><%=__('DownloadFacebookVideoStory') %></h2>
             </a>
 
-            <a href="#why-use-fastsave" style="text-decoration: none;" class="card-item">
+            <a href="#download-facebook-private-video" style="text-decoration: none;" class="card-item">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" class="icon-md" style="color: rgb(118, 208, 235)">
                     <path fill="currentColor" fill-rule="evenodd" d="M12.455 4.105a1 1 0 0 0-.91 0L1.987 8.982 1.077 7.2l9.56-4.877a3 3 0 0 1 2.726 0l9.56 4.877A1.98 1.98 0 0 1 24 9.22V15a1 1 0 1 1-2 0v-3.784l-2.033.995v4.094a3 3 0 0 1-1.578 2.642l-4.967 2.673a3 3 0 0 1-2.844 0l-4.967-2.673a3 3 0 0 1-1.578-2.642v-4.094l-2.927-1.433C-.374 10.053-.39 7.949 1.077 7.2l.91 1.782 9.573 4.689a1 1 0 0 0 .88 0L22 8.989v-.014zM6.033 13.19v3.114a1 1 0 0 0 .526.88l4.967 2.674a1 1 0 0 0 .948 0l4.967-2.673a1 1 0 0 0 .526-.88V13.19l-4.647 2.276a3 3 0 0 1-2.64 0z" clip-rule="evenodd"></path>
                 </svg>
-                <div><%=__('WhyUse') %></div>
+                <h2><%=__('DownloadFacebookPrivateVideo') %></h2>
             </a>
 
-            <a href="#faq" style="text-decoration: none;" class="card-item">
+            <a href="#download-facebook-reels" style="text-decoration: none;" class="card-item">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" class="icon-md" style="color: rgb(203, 139, 208)">
                     <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M3 6h7M3 10h4"></path>
                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.428 17.572 20.5 10.5a2.828 2.828 0 1 0-4-4l-7.072 7.072a2 2 0 0 0-.547 1.022L8 19l4.406-.881a2 2 0 0 0 1.022-.547"></path>
                 </svg>
-                <div><%=__('FAQ') %></div>
+                <h2><%=__('DownloadFacebookReels') %></h2>
             </a>
 
         </section>
@@ -373,7 +389,9 @@
                 <p style="display: block;font-size: 13px;color: #b9b9b9; text-align: center;margin-bottom: 26px;margin-top: 8px;">
                     <%=__('IntroDesc') %>
                 </p>
-                <a href="#" style="display: block; text-align: center;width: fit-content;margin: 0 auto;color: white;text-decoration: none;border-radius: 26px;padding: 8px 15px;background: #5d5dff;font-size: 13px;">Start downloading your favorite Facebook videos today!</a>
+                <a href="#" style="display: block; text-align: center;width: fit-content;margin: 0 auto;color: white;text-decoration: none;border-radius: 26px;padding: 8px 15px;background: #5d5dff;font-size: 13px;">
+                    <%=__('StartDownload') %>
+                </a>
             </div>
         </section>
 
@@ -394,13 +412,11 @@
                 </div>
 
                 <h4 style="margin-top: 46px;display: block;font-size: 18px;color: #0c6"><small><%=__('InstrVideo') %></small></h4>
-                <!-- <iframe style="width: 95%;max-width: 980px;height: 500px;margin: 18px auto;display: block;border-radius: 26px;" title="Instructional video how to use FastSave tool on youtube" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                <script defer>
-                    document.querySelector("iframe").src = "https://www.youtube.com/embed/gZGI4U09LyY?list=RDgZGI4U09LyY";
-                </script> -->
-                <a style="margin: 18px auto;display: block;" href="https://www.youtube.com/watch?v=EYc_ZTeZd-A" target="_blank"><img style="width: 95%;max-width: 980px;height: 470px;display: block;border-radius: 26px;" src="images/EYc_ZTeZd-A-HD.webp" alt="Video Hướng dẫn tải video facebook" srcset="images/EYc_ZTeZd-A-HD.webp"></a>
+                <a style="margin: 18px auto;display: block;" href="https://www.youtube.com/watch?v=EYc_ZTeZd-A" target="_blank">
+                    <img style="width: 95%;max-width: 980px;display: block;border-radius: 26px;margin: 0 auto;" src="images/EYc_ZTeZd-A-HD.webp" alt="Video Hướng dẫn tải video facebook" srcset="images/EYc_ZTeZd-A-HD.webp">
+                </a>
             </div>
-            
+
         </section>
 
         <!-- Why use FastSave -->
@@ -451,7 +467,7 @@
         <!-- Frequently Asked Questions -->
         <div class="divider"></div>
         <section id="faq" class="rich-result">
-            <h3 class="title" style="color: #212121;"><%=__('FAQ') %></h3>
+            <h3 class="title" style="color: #212121;margin-top: 18px;"><%=__('FAQ') %></h3>
             <div class="content" style="margin-top: 34px;" itemscope itemtype="https://schema.org/FAQPage">
 
                 <details tabindex=0 itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
@@ -531,13 +547,15 @@
 
         </section>
 
-        <div id="custom-alert" class="alert">
-            <span class="closebtn" onclick="closeAlert()">&times;</span>
-            <div class="alert-msg"></div>
-        </div>
+
     </main>
     <footer>
-        <p style="text-align: center;color: white;padding: 18px 0;font-size: 13px;color: #b9b9b9;">© 2024 <a style="color: #b9b9b9;text-decoration: none;" href="https://mwarevn.github.io" target="_blank">mwarevn</a> - All rights reserved. - <a style="color: #b9b9b9;text-decoration: none;" href="/older-version" target="_blank">older version.</a></p>
+        <p style="text-align: center;color: white;padding: 18px 0;font-size: 13px;color: #b9b9b9;">
+            © 2024
+            <a style="color: #b9b9b9;text-decoration: none;" href="https://mwarevn.github.io" target="_blank">mwarevn</a>
+            - All rights reserved. -
+            <a style="color: #b9b9b9;text-decoration: none;" href="/older-version">older version.</a>
+        </p>
     </footer>
 </body>
 
