@@ -34,27 +34,24 @@
     <link href="<%= canonical%>" rel=canonical>
     <link href="<%= WEBSITE_URL %>/images/dev.png" rel=apple-touch-icon>
 
+
     <script type="application/ld+json">
         {
-            "@context": "http://schema.org",
-            "@type": "WebSite",
-            "name": "<%=__('WebsiteTitle') %>",
-            "url": "<%=WEBSITE_URL%>",
-            "image": "<%=WEBSITE_URL%>/images/dev.png",
-            "description": "<%=__('WebsiteDesc') %>",
+            "@context": "https://schema.org",
             "searchKeywords": ["facebook video downloader", "free facebook video downloader", "hd facebook video downloader", "private facebook video downloader", "fast facebook video downloader", "mwarevn"],
-            "applicationCategory": "MultimediaApplication",
-            "operatingSystem": ["Android", "iOS", "Windows", "macOS", "Linux"],
+            "@type": "SoftwareApplication",
+            "name": "Facebook Video Downloader",
+            "operatingSystem": ["Android", "ios", "MacOS", "Windows", "Linux"],
+            "applicationCategory": ["UtilitiesApplication", "BrowserApplication"],
+            "aggregateRating": {
+                "@type": "AggregateRating",
+                "ratingValue": "4.6",
+                "ratingCount": "28864"
+            },
             "offers": {
                 "@type": "Offer",
                 "price": "0.00",
                 "priceCurrency": "USD"
-            },
-            "AggregateRating": {
-                "ratingCount": 10,
-                "reviewCount": 10,
-                "ratingValue": "4.6",
-                "itemReviewed": "Video Downloader for Facebook"
             }
         }
     </script>

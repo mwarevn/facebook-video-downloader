@@ -3,42 +3,49 @@
 <meta charset=UTF-8>
 <link href="<%= WEBSITE_URL %>/images/dev.png" rel=icon>
 <meta content="width=device-width,initial-scale=1" name=viewport>
-<title><%= __('og_title') %></title>
+<title><%= __('WebsitePrivateTitle') %></title>
 <meta content=notranslate name=google>
 <link href="<%= WEBSITE_URL %>/images/dev.png" rel="shorcut icon">
 <link href="<%= WEBSITE_URL %>" rel=alternate hreflang=x-default>
 <link href="<%= WEBSITE_URL %>/vi" rel=alternate hreflang=vi>
 <link href="<%= WEBSITE_URL %>/en" rel=alternate hreflang=en>
-<meta content="<%= __('meta_description') %>" name=description>
+<meta content="<%= __('WebsitePrivateDesc') %>" name=description>
 <meta content="<%= __('meta_keywords') %>" name=keywords>
 <meta content="index, follow" name=robots>
-<meta content="<%= __('og_title') %>" property=og:title>
-<meta content="<%= __('meta_description') %>" property=og:description>
+<meta content="<%= __('WebsitePrivateTitle') %>" property=og:title>
+<meta content="<%= __('WebsitePrivateDesc') %>" property=og:description>
 <meta content="<%= WEBSITE_URL %>/images/banner.png" property=og:image>
 <meta content="<%= WEBSITE_URL %>" property=og:url>
 <meta content=website property=og:type>
-<meta content="<%= __('og_title') %>" name=twitter:title>
-<meta content="<%= __('meta_description') %>" name=twitter:description>
+<meta content="<%= __('WebsitePrivateTitle') %>" name=twitter:title>
+<meta content="<%= __('WebsitePrivateDesc') %>" name=twitter:description>
 <meta content="<%= WEBSITE_URL %>/images/banner.png" name=twitter:image>
 <meta content="<%= WEBSITE_URL %>/images/banner.png" name=twitter:card>
 <link href="<%= canonical%>" rel=canonical>
 <link href="<%= WEBSITE_URL %>/images/dev.png" rel=apple-touch-icon>
-<script type=application/ld+json>
+
+<script type="application/ld+json">
     {
         "@context": "https://schema.org",
-        "@type": "WebSite",
-        "name": "<%= __('title') %>",
-        "url": "<%= WEBSITE_URL %>",
-        "searchKeywords": [<%= __('searchKeywords') %>],
-        "image": "<%= WEBSITE_URL %>/images/dev.png",
-        "potentialAction": {
-            "@type": "SearchAction",
-            "target": "<%= WEBSITE_URL %>/search?q={searchTerms}"
+        "searchKeywords": ["facebook video downloader", "facebook private video downloader", "facebook downloader", "private facebook video downloader", "download fb private video", "mwarevn"],
+        "@type": "SoftwareApplication",
+        "name": "<%=__('DownloadFacebookPrivateVideo') %>",
+        "operatingSystem": ["Android", "ios", "MacOS", "Windows", "Linux"],
+        "applicationCategory": ["UtilitiesApplication", "BrowserApplication"],
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.6",
+            "ratingCount": "28864"
+        },
+        "offers": {
+            "@type": "Offer",
+            "price": "0.00",
+            "priceCurrency": "USD"
         }
     }
 </script>
 <script src=https://cdn.tailwindcss.com></script>
-<link href=stylesheets/styles.pure.private.css rel=stylesheet>
+<link href=../stylesheets/styles.pure.private.css rel=stylesheet>
 <style>
     * {
         scroll-behavior: smooth
@@ -91,7 +98,7 @@
 <body class=font-sans style=background-color:#fff>
     <header class="border-b-2 py-3">
         <div class="mx-auto md:w-3/4 sm:w-full container px-8">
-            <nav class="flex items-center justify-between"><a href=/ class="font-bold space-x-6 text-xl">FastSave</a>
+            <nav class="flex items-center justify-between"><a href=/facebook-private-video-downloader class="font-bold space-x-6 text-xl">FastSave</a>
                 <div class="language-switcher text-sm">
 
                     <div class="language-switcher text-sm">
@@ -214,7 +221,7 @@
                     </table>
                 </div>
             </section>
-            <script src=js/download.private.js defer></script>
+            <script src=../js/download.private.js defer></script>
             <section class="rounded-lg bg-white md:w-3/4 mx-auto sm:w-full p-6" style=background-color:#f4f5fc>
                 <h3 class="font-bold text-center mb-6 mt-2 text-2xl">Giới thiệu về <span class="text-warning text-blue-500s">FastSave</span></h3>
                 <ol class="mb-4 ml-6 list-decimal">
