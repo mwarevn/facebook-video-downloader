@@ -5,17 +5,30 @@ var homeCtrl = require("../controllers/home.controller");
 // render pages
 
 homeRouter.get(
-	["/facebook-private-video-downloader", "/facebook-private-video-downloader/:code"],
-	homeCtrl.facebookPrivateDownloadPage
+  [
+    "/facebook-private-video-downloader",
+    "/facebook-private-video-downloader/:code",
+  ],
+  homeCtrl.facebookPrivateDownloadPage
 );
 
-homeRouter.get(["/older-version/:code", "/older-version/"], homeCtrl.olderVersion);
+homeRouter.get(
+  ["/older-version/:code", "/older-version/"],
+  homeCtrl.olderVersion
+);
 
+homeRouter.get(
+  ["/test/:code", "/test/"],
+  homeCtrl.TestfacebookPublicDownloadPage
+);
 
 homeRouter.get(["/:code", "/"], homeCtrl.facebookPublicDownloadPage);
 
 homeRouter.post("/get-public-facebook-video", homeCtrl.getPublicFacebookVideo);
 
-homeRouter.post("/get-private-facebook-video", homeCtrl.getPrivateFaceBookVideo);
+homeRouter.post(
+  "/get-private-facebook-video",
+  homeCtrl.getPrivateFaceBookVideo
+);
 
 module.exports = homeRouter;

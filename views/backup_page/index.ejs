@@ -11,23 +11,23 @@
     <script defer src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5383842302083788" crossorigin="anonymous"></script>
 
 
-    <title><%= t['facebook video downloader'].title %></title>
-    <meta content="<%= t['facebook video downloader'].description %>" name=description>
+    <title><%=__('WebsiteTitle') %></title>
+    <meta content="<%=__('WebsiteDesc') %>" name=description>
 
     <link href="<%= WEBSITE_URL %>/images/dev.png" rel=icon>
     <link href="<%= WEBSITE_URL %>/images/dev.png" rel="shorcut icon">
     <link href="<%= WEBSITE_URL %>" rel=alternate hreflang=x-default>
 
-    <meta name="keywords" content="<%= t['facebook video downloader'].primary_keywords %>">
-    <meta name="keywords" content="<%= t['facebook video downloader'].sub_keywords %>">
-    <meta name="keywords" content="<%= t['facebook video downloader'].long_tail_keywords %>">
+    <meta name="keywords" content="<%=__('PrimaryKeyWords') %>">
+    <meta name="keywords" content="<%=__('SubKeyWords') %>">
+    <meta name="keywords" content="<%=__('LongTailsKeyWords') %>">
 
-    <meta content="<%= t['facebook video downloader'].title %>" property=og:title>
-    <meta content="<%= t['facebook video downloader'].description %>" property=og:description>
+    <meta content="<%=__('WebsiteTitle') %>" property=og:title>
+    <meta content="<%=__('WebsiteDesc') %>" property=og:description>
     <meta content="<%= WEBSITE_URL %>/images/banner.png" property=og:image>
     <meta content="<%= WEBSITE_URL %>" property=og:url>
-    <meta content="<%= t['facebook video downloader'].title %>" name=twitter:title>
-    <meta content="<%= t['facebook video downloader'].description %>" name=twitter:description>
+    <meta content="<%=__('WebsiteTitle') %>" name=twitter:title>
+    <meta content="<%=__('WebsiteDesc') %>" name=twitter:description>
     <meta content="<%= WEBSITE_URL %>/images/banner.png" name=twitter:image>
     <meta content="<%= WEBSITE_URL %>/images/banner.png" name=twitter:card>
     <link href="<%= canonical%>" rel=canonical>
@@ -207,12 +207,12 @@
         </article>
         <!-- form -->
         <section class="rich-result form-container">
-            <h1><%= t['facebook video downloader'].heading %></h1>
-            <p class="tool-description"><%= t['facebook video downloader'].slogan %></p>
+            <h1><%=__('DownloadFBVideos') %></h1>
+            <p class="tool-description"><%=__('DownloadDesc') %></p>
 
             <a class="private-tool" href="/facebook-private-video-downloader">
 
-                <small><%= t['facebook private video downloader'].heading %> </small>
+                <small><%=__('PrivateTool') %> </small>
                 <svg style="margin-left: 4px;" xmlns="http://www.w3.org/2000/svg" fill="#e2c541" viewBox="0 0 24 24" stroke-width="1.5" stroke="#e2c541" width="24" height="24">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 0 0-2.456 2.456ZM16.894 20.567 16.5 21.75l-.394-1.183a2.25 2.25 0 0 0-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 0 0 1.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 0 0 1.423 1.423l1.183.394-1.183.394a2.25 2.25 0 0 0-1.423 1.423Z" />
                 </svg>
@@ -223,7 +223,7 @@
                     <svg class="icon-md-heavy btn-paste" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                         <path fill="#FFF" fill-rule="evenodd" d="M9 7a5 5 0 0 1 10 0v8a7 7 0 1 1-14 0V9a1 1 0 0 1 2 0v6a5 5 0 0 0 10 0V7a3 3 0 1 0-6 0v8a1 1 0 1 0 2 0V9a1 1 0 1 1 2 0v6a3 3 0 1 1-6 0z" clip-rule="evenodd"></path>
                     </svg>
-                    <input placeholder="<%= t.common.paste_url %>" name="video_url" type="url" required autocomplete="off" />
+                    <input placeholder="<%=__('PasteUrl') %>" name="video_url" type="url" required autocomplete="off" />
                     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="none" viewBox="0 0 32 32" class="icon-2xl icon-arrow-up">
                         <path fill="#2f2f2f" fill-rule="evenodd" d="M15.192 8.906a1.143 1.143 0 0 1 1.616 0l5.143 5.143a1.143 1.143 0 0 1-1.616 1.616l-3.192-3.192v9.813a1.143 1.143 0 0 1-2.286 0v-9.813l-3.192 3.192a1.143 1.143 0 1 1-1.616-1.616z" clip-rule="evenodd"></path>
                     </svg>
@@ -306,9 +306,9 @@
                         handleInputUrl()
                     })
                     .catch(() => {
-                        showAlert("<%= t.common.grant_clipboard_access %>");
+                        showAlert("Vui cấp quyền truy cập clipboard cho trang web!");
                     }) :
-                    showAlert("<%= t.common.browser_not_support %>");
+                    showAlert("Trình duyệt không được hỗ trợ!");
             }
 
             function showAlert(msg) {
@@ -372,7 +372,7 @@
                                         <span>${res[item].quality}</span>
                                         <div><small>render: ${res[item].render}</small></div>
                                     </div>
-                                    <a href="${res[item].url}" class="btn-download"><%= t.common.download %></a>
+                                    <a href="${res[item].url}" class="btn-download">Download</a>
                                     </div>
                                 </figure>
                                 `;
@@ -384,13 +384,13 @@
                             }
                         })
                         .catch(() => {
-                            showAlert("<%= t.common.unknown_error %>");
+                            showAlert("Có lỗi xảy ra, vui lòng thử lại sau!");
                         })
                         .finally(() => {
                             hideLoader();
                         });
                 } else {
-                    showAlert("<%= t.common.invalidate_url %>");
+                    showAlert("Invalid, please paste facebook video url!");
                     hideLoader();
                 }
             }
@@ -402,21 +402,21 @@
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" class="icon-md" style="color: rgb(118, 208, 235)">
                     <path fill="currentColor" fill-rule="evenodd" d="M13.997 3.39A2.5 2.5 0 0 1 17.2 2.103l2.203.882a2.5 2.5 0 0 1 1.342 3.369L19.063 10H20a1 1 0 0 1 1 1v8a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3v-8a1 1 0 0 1 .992-1l-.149-.101-.03-.022c-1.254-.924-1.016-2.864.425-3.458l2.12-.874.724-2.176c.492-1.479 2.41-1.851 3.42-.665L11.99 4.45l1.521.01zm1.513 1.506a2 2 0 0 1 .461 2.618l-1.144 1.861v.045a1.3 1.3 0 0 0 .044.278 1 1 0 0 1 .047.302h1.942l2.07-4.485a.5.5 0 0 0-.268-.673l-2.203-.882a.5.5 0 0 0-.641.258zM12.889 10a3.3 3.3 0 0 1-.06-.499c-.01-.236-.004-.69.237-1.081l1.202-1.954-2.293-.016a2 2 0 0 1-1.51-.704L8.98 4l-.725 2.176A2 2 0 0 1 7.12 7.394L5 8.267l2.063 1.407c.129.087.23.2.303.326zM5 12v7a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-7zm4.5 2.5a1 1 0 0 1 1-1h3a1 1 0 1 1 0 2h-3a1 1 0 0 1-1-1" clip-rule="evenodd"></path>
                 </svg>
-                <h2><%= t.hot_keywords[0] %></h2>
+                <h2><%=t.FbDownloader %></h2>
             </a>
 
             <a href="#download-facebook-video-sroty" style="text-decoration: none;" class="card-item">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" class="icon-md" style="color: #e2c541">
                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19a3 3 0 1 1-6 0M15.865 16A7.54 7.54 0 0 0 19.5 9.538C19.5 5.375 16.142 2 12 2S4.5 5.375 4.5 9.538A7.54 7.54 0 0 0 8.135 16m7.73 0h-7.73m7.73 0v3h-7.73v-3"></path>
                 </svg>
-                <h2><%= t.hot_keywords[1] %></h2>
+                <h2><%=__('DownloadFacebookVideoStory') %></h2>
             </a>
 
             <a href="#download-facebook-private-video" style="text-decoration: none;" class="card-item">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" class="icon-md" style="color: rgb(118, 208, 235)">
                     <path fill="currentColor" fill-rule="evenodd" d="M12.455 4.105a1 1 0 0 0-.91 0L1.987 8.982 1.077 7.2l9.56-4.877a3 3 0 0 1 2.726 0l9.56 4.877A1.98 1.98 0 0 1 24 9.22V15a1 1 0 1 1-2 0v-3.784l-2.033.995v4.094a3 3 0 0 1-1.578 2.642l-4.967 2.673a3 3 0 0 1-2.844 0l-4.967-2.673a3 3 0 0 1-1.578-2.642v-4.094l-2.927-1.433C-.374 10.053-.39 7.949 1.077 7.2l.91 1.782 9.573 4.689a1 1 0 0 0 .88 0L22 8.989v-.014zM6.033 13.19v3.114a1 1 0 0 0 .526.88l4.967 2.674a1 1 0 0 0 .948 0l4.967-2.673a1 1 0 0 0 .526-.88V13.19l-4.647 2.276a3 3 0 0 1-2.64 0z" clip-rule="evenodd"></path>
                 </svg>
-                <h2><%= t.hot_keywords[2] %></h2>
+                <h2><%=__('DownloadFacebookPrivateVideo') %></h2>
             </a>
 
             <a href="#download-facebook-reels" style="text-decoration: none;" class="card-item">
@@ -424,7 +424,7 @@
                     <path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M3 6h7M3 10h4"></path>
                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.428 17.572 20.5 10.5a2.828 2.828 0 1 0-4-4l-7.072 7.072a2 2 0 0 0-.547 1.022L8 19l4.406-.881a2 2 0 0 0 1.022-.547"></path>
                 </svg>
-                <h2><%= t.hot_keywords[3] %></h2>
+                <h2><%=__('DownloadFacebookReels') %></h2>
             </a>
 
         </section>
@@ -435,13 +435,13 @@
         <section id="introduce-to-fastsave" class="rich-result" style="background: #2f2f2f;
         padding: 28px;
         border-radius: 16px;">
-            <h2 class="title"><%= t['facebook video downloader'].introduction.title %></h2>
+            <h2 class="title"><%=__('Intro') %></h2>
             <div class="content" style="margin-top: 34px;">
                 <p style="display: block;font-size: 13px;color: #b9b9b9; text-align: center;margin-bottom: 26px;margin-top: 8px;">
-                    <%= t['facebook video downloader'].introduction.content %>
+                    <%=__('IntroDesc') %>
                 </p>
                 <a href="#" style="display: block; text-align: center;width: fit-content;margin: 0 auto;color: white;text-decoration: none;border-radius: 26px;padding: 8px 15px;background: #5d5dff;font-size: 13px;">
-                    <%= t['facebook video downloader'].introduction.start_download %>
+                    <%=__('StartDownload') %>
                 </a>
             </div>
         </section>
@@ -449,21 +449,22 @@
         <!-- How to Use FastSave -->
         <div class="divider"></div>
         <section id="how-to-use-fastsave" class="rich-result">
-            <h3 class="title"><%= t['facebook video downloader'].how_to_use.title %></h3>
+            <h3 class="title"><%=__('HowToUse') %></h3>
             <div>
                 <div class="content" style="margin-top: 34px;">
-                    <h4 style="display: block;font-size: 18px;color: #0c6"><small><%= t['facebook video downloader'].how_to_use.description %></small></h4>
+                    <h4 style="display: block;font-size: 18px;color: #0c6"><small><%=__('Steps') %></small></h4>
                     <ol style="margin-top: 18px;margin-left: 26px;margin-right: 26px;">
-                        <li class="text-white" style="margin: 12px 0px;"><%= t['facebook video downloader'].how_to_use.steps.copy_url.description %></li>
-                        <li class="text-white" style="margin: 12px 0px;"><%= t['facebook video downloader'].how_to_use.steps.paste_url.description %></li>
-                        <li class="text-white" style="margin: 12px 0px;"><%= t['facebook video downloader'].how_to_use.steps.download.description %></li>
-                        <li class="text-white" style="margin: 12px 0px;"><%= t['facebook video downloader'].how_to_use.steps.save.description %></li>
+                        <li class="text-white" style="margin: 12px 0px;"><%=__('CopyUrl') %></li>
+                        <li class="text-white" style="margin: 12px 0px;"><%=__('PasteUrlStep') %></li>
+                        <li class="text-white" style="margin: 12px 0px;"><%=__('ClickDownload') %></li>
+                        <li class="text-white" style="margin: 12px 0px;"><%=__('ChooseQuality') %></li>
+                        <li class="text-white" style="margin: 12px 0px;"><%=__('DownloadComplete') %></li>
                     </ol>
                 </div>
 
-                <h4 style="margin-top: 46px;display: block;font-size: 18px;color: #0c6"><small><%= t['facebook video downloader'].how_to_use.watch_video %></small></h4>
+                <h4 style="margin-top: 46px;display: block;font-size: 18px;color: #0c6"><small><%=__('InstrVideo') %></small></h4>
                 <a style="margin: 18px auto;display: block;" href="https://www.youtube.com/watch?v=EYc_ZTeZd-A" target="_blank">
-                    <img style="width: 95%;max-width: 980px;display: block;border-radius: 26px;margin: 0 auto;" src="/images/EYc_ZTeZd-A-HD.webp" alt="Video Hướng dẫn tải video facebook" srcset="images/EYc_ZTeZd-A-HD.webp">
+                    <img style="width: 95%;max-width: 980px;display: block;border-radius: 26px;margin: 0 auto;" src="images/EYc_ZTeZd-A-HD.webp" alt="Video Hướng dẫn tải video facebook" srcset="images/EYc_ZTeZd-A-HD.webp">
                 </a>
             </div>
 
@@ -472,35 +473,33 @@
         <!-- Why use FastSave -->
         <div class="divider"></div>
         <section id="why-use-fastsave" class="rich-result">
-            <h3 class="title"><%= t.common.why_use.title %></h3>
+            <h3 class="title"><%=__('WhyUse') %></h3>
             <div class="content">
-                <span style="display: block;font-size: 13px;color: #b9b9b9; text-align: center;margin-bottom: 26px;margin-top: 8px;">
-                    <%= t.common.why_use.description %>
-                </span>
+                <span style="display: block;font-size: 13px;color: #b9b9b9; text-align: center;margin-bottom: 26px;margin-top: 8px;"><%=__('Reasons') %></span>
                 <div class="flex-box" style="display: flex; justify-content: center; align-items: center; flex-wrap: wrap; flex: 1;">
                     <div class="card-flex-item">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="#38a36a" width="58" height="58">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m-3-2.818.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
                         </svg>
 
-                        <h4 class="text-white" style="margin-top: 8px;"><%= t.common.why_use.reasons.free.title %></h4>
-                        <p style="margin-top: 8px;font-size: 13px;padding: 8px;" class="text-white"><%= t.common.why_use.reasons.free.description %></p>
+                        <h4 class="text-white" style="margin-top: 8px;"><%=__('FreeAndEasy') %></h4>
+                        <p style="margin-top: 8px;font-size: 13px;padding: 8px;" class="text-white"><%=__('FreeDesc') %></p>
                     </div>
 
                     <div class="card-flex-item">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="#38a36a" width="58" height="58">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 0 1-1.043 3.296 3.745 3.745 0 0 1-3.296 1.043A3.745 3.745 0 0 1 12 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 0 1-3.296-1.043 3.745 3.745 0 0 1-1.043-3.296A3.745 3.745 0 0 1 3 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 0 1 1.043-3.296 3.746 3.746 0 0 1 3.296-1.043A3.746 3.746 0 0 1 12 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 0 1 3.296 1.043 3.746 3.746 0 0 1 1.043 3.296A3.745 3.745 0 0 1 21 12Z" />
                         </svg>
-                        <h4 class="text-white" style="margin-top: 8px;"><%= t.common.why_use.reasons.fast.title %></h4>
-                        <p style="margin-top: 8px;font-size: 13px;padding: 8px;" class="text-white"><%= t.common.why_use.reasons.fast.description %></p>
+                        <h4 class="text-white" style="margin-top: 8px;"><%=__('FastAndHD') %></h4>
+                        <p style="margin-top: 8px;font-size: 13px;padding: 8px;" class="text-white"><%=__('FastDesc') %></p>
                     </div>
 
                     <div class="card-flex-item">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="#38a36a" width="58" height="58">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 1.5H8.25A2.25 2.25 0 0 0 6 3.75v16.5a2.25 2.25 0 0 0 2.25 2.25h7.5A2.25 2.25 0 0 0 18 20.25V3.75a2.25 2.25 0 0 0-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3" />
                         </svg>
-                        <h4 class="text-white" style="margin-top: 8px;"><%= t.common.why_use.reasons.support_all.title %></h4>
-                        <p style="margin-top: 8px;font-size: 13px;padding: 8px;" class="text-white"><%= t.common.why_use.reasons.support_all.description %></p>
+                        <h4 class="text-white" style="margin-top: 8px;"><%=__('SupportAll') %></h4>
+                        <p style="margin-top: 8px;font-size: 13px;padding: 8px;" class="text-white"><%=__('SupportDesc') %></p>
                     </div>
 
                     <div class="card-flex-item">
@@ -508,8 +507,8 @@
                             <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z" />
                         </svg>
 
-                        <h4 class="text-white" style="margin-top: 8px;"><%= t.common.why_use.reasons.safe.title %></h4>
-                        <p style="margin-top: 8px;font-size: 13px;padding: 8px;" class="text-white"><%= t.common.why_use.reasons.safe.description %></p>
+                        <h4 class="text-white" style="margin-top: 8px;"><%=__('Safe') %></h4>
+                        <p style="margin-top: 8px;font-size: 13px;padding: 8px;" class="text-white"><%=__('SafeDesc') %></p>
                     </div>
 
                 </div>
@@ -519,29 +518,94 @@
         <!-- Frequently Asked Questions -->
         <div class="divider"></div>
         <section id="faq" class="rich-result">
-            <h3 class="title" style="color: #212121;margin-top: 18px;"><%= t.common.frequently_asked_questions.title %></h3>
+            <h3 class="title" style="color: #212121;margin-top: 18px;"><%=__('FAQ') %></h3>
             <div class="content" style="margin-top: 34px;" itemscope itemtype="https://schema.org/FAQPage">
 
-                <% t.common.frequently_asked_questions.list.forEach(item => { %>
                 <details tabindex=0 itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-                    <summary itemprop="name"><%= item.question %></summary>
+                    <summary itemprop="name"><%=__('WhatIs') %></summary>
                     <article itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                        <p itemprop="text"><%= item.answer %></p>
+                        <p itemprop="text"><%=__('WhatIsDesc') %></p>
                     </article>
                 </details>
-                <% }) %>
+
+                <details tabindex=0 itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                    <summary itemprop="name"><%=__('WhyUse') %></summary>
+                    <article itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                        <p itemprop="text">
+
+                            <%=__('WhyUse-Desc') %>
+
+                        <ul style="margin-left: 26px;margin-right: 26px;">
+
+                            <li><%=__('WhyUse-Free') %></li>
+                            <li><%=__('WhyUse-EasyToUse') %></li>
+                            <li><%=__('WhyUse-Fast') %></li>
+                            <li><%=__('WhyUse-HDQuality') %></li>
+                            <li><%=__('WhyUse-PrivateSupport') %></li>
+                            <li><%=__('WhyUse-Safe') %></li>
+
+                        </ul>
+                        </p>
+                    </article>
+                </details>
+
+                <details tabindex=0 itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                    <summary itemprop="name">How do I use FastSave?</summary>
+                    <article itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                        <p itemprop="text">
+                            <%=__('Steps') %>
+
+                        <ol style="margin-left: 26px;margin-right: 26px;">
+                            <li><%=__('CopyUrl') %></li>
+                            <li><%=__('PasteUrlStep') %></li>
+                            <li><%=__('ClickDownload') %></li>
+                            <li><%=__('ChooseQuality') %></li>
+                            <li><%=__('DownloadComplete') %></li>
+                        </ol>
+                        </p>
+                    </article>
+                </details>
+
+                <details tabindex=0 itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                    <summary itemprop="name"><%=__('IsSafe') %></summary>
+                    <article itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                        <p itemprop="text"><%=__('IsSafeDesc') %></p>
+                    </article>
+                </details>
+
+                <details tabindex=0 itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                    <summary itemprop="name"><%=__('HowMany') %></summary>
+                    <article itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                        <p itemprop="text"><%=__('HowManyDesc') %></p>
+                    </article>
+                </details>
+
+                <details tabindex=0 itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                    <summary itemprop="name"><%=__('Trouble') %></summary>
+                    <article itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                        <p itemprop="text"><%=__('TroubleDesc') %></p>
+                    </article>
+                </details>
+                <details tabindex=0 itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                    <summary itemprop="name"><%=__('Suggest') %></summary>
+                    <article itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                        <p itemprop="text"><%=__('SuggestDesc') %></p>
+                    </article>
+                </details>
 
             </div>
 
+
         </section>
+
 
     </main>
     <footer>
         <p style="text-align: center;color: white;padding: 18px 0;font-size: 13px;color: #b9b9b9;">
             © 2024
             <a style="color: #b9b9b9;text-decoration: none;" href="https://mwarevn.github.io" target="_blank">mwarevn</a>
-            - All rights reserved.
-            <!-- <a style="color: #b9b9b9;text-decoration: none;" href="/older-version">older version.</a> -->
+            - All rights reserved. -
+            <a style="color: #b9b9b9;text-decoration: none;" href="/older-version">older version.</a>
         </p>
     </footer>
 </body>

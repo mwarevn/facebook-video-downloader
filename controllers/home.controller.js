@@ -45,9 +45,29 @@ class HomeController {
       return next(createHttpError(404));
     }
 
-    code = getLanguageCode(req);
+    // code = getLanguageCode(req);
+    code = "vi";
 
     res.render("pages/index.ejs", {
+      ...app,
+      languageCode: code,
+      canonical,
+      t: language_dict[code],
+    });
+  }
+
+  // =========================================== TEST ===========================================
+  TestfacebookPublicDownloadPage(req, res, next) {
+    let canonical = app.WEBSITE_URL + req.url;
+
+    var code = req.params.code;
+    if (validateLanguageCodeAndRoute(code)) {
+      return next(createHttpError(404));
+    }
+
+    code = getLanguageCode(req);
+
+    res.render("pages/test.ejs", {
       ...app,
       languageCode: code,
       canonical,
