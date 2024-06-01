@@ -1,38 +1,91 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="<%= languageCode %>">
 
 <head>
     <meta charset=UTF-8>
-    <link href="<%= WEBSITE_URL %>/images/dev.png" rel=icon>
+    <meta content=notranslate name=google>
+    <meta content=website property=og:type>
+    <meta content="index, follow" name=robots>
     <meta content="width=device-width,initial-scale=1" name=viewport>
-    <title><%=__('WebsiteTitle') %></title>
     <meta name="google-adsense-account" content="ca-pub-5383842302083788">
     <script defer src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5383842302083788" crossorigin="anonymous"></script>
 
-    <meta content=notranslate name=google>
+
+    <title><%=__('WebsiteTitle') %></title>
+    <meta content="<%=__('WebsiteDesc') %>" name=description>
+
+    <link href="<%= WEBSITE_URL %>/images/dev.png" rel=icon>
     <link href="<%= WEBSITE_URL %>/images/dev.png" rel="shorcut icon">
     <link href="<%= WEBSITE_URL %>" rel=alternate hreflang=x-default>
-    <link href="<%= WEBSITE_URL %>/vi" rel=alternate hreflang=vi>
-    <link href="<%= WEBSITE_URL %>/en" rel=alternate hreflang=en>
-
-    <meta content="<%=__('WebsiteDesc') %>" name=description>
 
     <meta name="keywords" content="<%=__('PrimaryKeyWords') %>">
     <meta name="keywords" content="<%=__('SubKeyWords') %>">
     <meta name="keywords" content="<%=__('LongTailsKeyWords') %>">
 
-    <meta content="index, follow" name=robots>
     <meta content="<%=__('WebsiteTitle') %>" property=og:title>
     <meta content="<%=__('WebsiteDesc') %>" property=og:description>
     <meta content="<%= WEBSITE_URL %>/images/banner.png" property=og:image>
     <meta content="<%= WEBSITE_URL %>" property=og:url>
-    <meta content=website property=og:type>
     <meta content="<%=__('WebsiteTitle') %>" name=twitter:title>
     <meta content="<%=__('WebsiteDesc') %>" name=twitter:description>
     <meta content="<%= WEBSITE_URL %>/images/banner.png" name=twitter:image>
     <meta content="<%= WEBSITE_URL %>/images/banner.png" name=twitter:card>
     <link href="<%= canonical%>" rel=canonical>
     <link href="<%= WEBSITE_URL %>/images/dev.png" rel=apple-touch-icon>
+
+    <link href="<%= WEBSITE_URL %>/zh-CN" rel=alternate hreflang=zh-CN>
+    <link href="<%= WEBSITE_URL %>/zh-TW" rel=alternate hreflang=zh-TW>
+    <link href="<%= WEBSITE_URL %>/af" rel=alternate hreflang=af>
+    <link href="<%= WEBSITE_URL %>/ga" rel=alternate hreflang=ga>
+    <link href="<%= WEBSITE_URL %>/sq" rel=alternate hreflang=sq>
+    <link href="<%= WEBSITE_URL %>/it" rel=alternate hreflang=it>
+    <link href="<%= WEBSITE_URL %>/ar" rel=alternate hreflang=ar>
+    <link href="<%= WEBSITE_URL %>/ja" rel=alternate hreflang=ja>
+    <link href="<%= WEBSITE_URL %>/az" rel=alternate hreflang=az>
+    <link href="<%= WEBSITE_URL %>/kn" rel=alternate hreflang=kn>
+    <link href="<%= WEBSITE_URL %>/eu" rel=alternate hreflang=eu>
+    <link href="<%= WEBSITE_URL %>/ko" rel=alternate hreflang=ko>
+    <link href="<%= WEBSITE_URL %>/bn" rel=alternate hreflang=bn>
+    <link href="<%= WEBSITE_URL %>/la" rel=alternate hreflang=la>
+    <link href="<%= WEBSITE_URL %>/be" rel=alternate hreflang=be>
+    <link href="<%= WEBSITE_URL %>/lv" rel=alternate hreflang=lv>
+    <link href="<%= WEBSITE_URL %>/bg" rel=alternate hreflang=bg>
+    <link href="<%= WEBSITE_URL %>/lt" rel=alternate hreflang=lt>
+    <link href="<%= WEBSITE_URL %>/ca" rel=alternate hreflang=ca>
+    <link href="<%= WEBSITE_URL %>/mk" rel=alternate hreflang=mk>
+    <link href="<%= WEBSITE_URL %>/ms" rel=alternate hreflang=ms>
+    <link href="<%= WEBSITE_URL %>/mt" rel=alternate hreflang=mt>
+    <link href="<%= WEBSITE_URL %>/hr" rel=alternate hreflang=hr>
+    <link href="<%= WEBSITE_URL %>/no" rel=alternate hreflang=no>
+    <link href="<%= WEBSITE_URL %>/cs" rel=alternate hreflang=cs>
+    <link href="<%= WEBSITE_URL %>/da" rel=alternate hreflang=da>
+    <link href="<%= WEBSITE_URL %>/pl" rel=alternate hreflang=pl>
+    <link href="<%= WEBSITE_URL %>/nl" rel=alternate hreflang=nl>
+    <link href="<%= WEBSITE_URL %>/pt" rel=alternate hreflang=pt>
+    <link href="<%= WEBSITE_URL %>/en" rel=alternate hreflang=en>
+    <link href="<%= WEBSITE_URL %>/ro" rel=alternate hreflang=ro>
+    <link href="<%= WEBSITE_URL %>/eo" rel=alternate hreflang=eo>
+    <link href="<%= WEBSITE_URL %>/ru" rel=alternate hreflang=ru>
+    <link href="<%= WEBSITE_URL %>/sr" rel=alternate hreflang=sr>
+    <link href="<%= WEBSITE_URL %>/sk" rel=alternate hreflang=sk>
+    <link href="<%= WEBSITE_URL %>/fi" rel=alternate hreflang=fi>
+    <link href="<%= WEBSITE_URL %>/sl" rel=alternate hreflang=sl>
+    <link href="<%= WEBSITE_URL %>/fr" rel=alternate hreflang=fr>
+    <link href="<%= WEBSITE_URL %>/es" rel=alternate hreflang=es>
+    <link href="<%= WEBSITE_URL %>/gl" rel=alternate hreflang=gl>
+    <link href="<%= WEBSITE_URL %>/sw" rel=alternate hreflang=sw>
+    <link href="<%= WEBSITE_URL %>/ka" rel=alternate hreflang=ka>
+    <link href="<%= WEBSITE_URL %>/sv" rel=alternate hreflang=sv>
+    <link href="<%= WEBSITE_URL %>/de" rel=alternate hreflang=de>
+    <link href="<%= WEBSITE_URL %>/el" rel=alternate hreflang=el>
+    <link href="<%= WEBSITE_URL %>/ht" rel=alternate hreflang=ht>
+    <link href="<%= WEBSITE_URL %>/He" rel=alternate hreflang=He>
+    <link href="<%= WEBSITE_URL %>/hi" rel=alternate hreflang=hi>
+    <link href="<%= WEBSITE_URL %>/hu" rel=alternate hreflang=hu>
+    <link href="<%= WEBSITE_URL %>/vi" rel=alternate hreflang=vi>
+    <link href="<%= WEBSITE_URL %>/is" rel=alternate hreflang=is>
+    <link href="<%= WEBSITE_URL %>/cy" rel=alternate hreflang=cy>
+    <link href="<%= WEBSITE_URL %>/id" rel=alternate hreflang=id>
 
 
     <script type="application/ld+json">
@@ -70,7 +123,7 @@
 <body>
 
     <header style="padding: 14px">
-        <a href="/" class="text-primary" style="text-decoration: none; font-weight: bold; font-size: 20px">FastSave</a>
+        <a href="/<%= languageCode %>" class="text-primary" style="text-decoration: none; font-weight: bold; font-size: 20px">FastSave</a>
         <div>
             <a href="https://t.me/mwarevn_assistant_bot" style="color: white;text-decoration: none;margin-right: 10px;">Telegram bot</a>|
             <nav style="display: inline-block;">
@@ -95,7 +148,7 @@
                     <li><a href="/ca"> <%=__('Ca') %> </a></li>
                     <li><a href="/mk"> <%=__('Mk') %> </a></li>
                     <li><a href="/zh-CN"> <%=__('ZhCn') %></a></li>
-                    <li><a href="/ms"> <%=__('Malay') %> </a></li>
+                    <li><a href="/ms"> <%=__('Ms') %> </a></li>
                     <li><a href="/zh-TW"> <%=__('ZhTw') %></a></li> -
                     <li><a href="/mt"> <%=__('Mt') %> </a></li>
                     <li><a href="/hr"> <%=__('Hr') %> </a></li>
@@ -250,6 +303,7 @@
                     .then((text) => {
                         elements.inputUrl.value = text;
                         closeAlert();
+                        handleInputUrl()
                     })
                     .catch(() => {
                         showAlert("Vui cấp quyền truy cập clipboard cho trang web!");
@@ -348,7 +402,7 @@
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" class="icon-md" style="color: rgb(118, 208, 235)">
                     <path fill="currentColor" fill-rule="evenodd" d="M13.997 3.39A2.5 2.5 0 0 1 17.2 2.103l2.203.882a2.5 2.5 0 0 1 1.342 3.369L19.063 10H20a1 1 0 0 1 1 1v8a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3v-8a1 1 0 0 1 .992-1l-.149-.101-.03-.022c-1.254-.924-1.016-2.864.425-3.458l2.12-.874.724-2.176c.492-1.479 2.41-1.851 3.42-.665L11.99 4.45l1.521.01zm1.513 1.506a2 2 0 0 1 .461 2.618l-1.144 1.861v.045a1.3 1.3 0 0 0 .044.278 1 1 0 0 1 .047.302h1.942l2.07-4.485a.5.5 0 0 0-.268-.673l-2.203-.882a.5.5 0 0 0-.641.258zM12.889 10a3.3 3.3 0 0 1-.06-.499c-.01-.236-.004-.69.237-1.081l1.202-1.954-2.293-.016a2 2 0 0 1-1.51-.704L8.98 4l-.725 2.176A2 2 0 0 1 7.12 7.394L5 8.267l2.063 1.407c.129.087.23.2.303.326zM5 12v7a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-7zm4.5 2.5a1 1 0 0 1 1-1h3a1 1 0 1 1 0 2h-3a1 1 0 0 1-1-1" clip-rule="evenodd"></path>
                 </svg>
-                <h2><%=__('FbDownloader') %></h2>
+                <h2><%=t.FbDownloader %></h2>
             </a>
 
             <a href="#download-facebook-video-sroty" style="text-decoration: none;" class="card-item">
