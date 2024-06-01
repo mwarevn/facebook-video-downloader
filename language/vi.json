@@ -1,0 +1,188 @@
+{
+  "facebook video downloader": {
+    "title": "Tải video Facebook - FastSave",
+    "heading": "Tải video Facebook",
+    "slogan": "Tải video facebook về điện thoại hoặc máy tính miễn phí chất lượng cao. Full HD, 2K, 4K.",
+    "description": "Công cụ tải video trên facebook giúp bạn tải video fb về máy tính hoặc điện thoại miễn phí chất lượng cao.",
+    "primary_keywords": "Tải video Facebook, Lưu video facebook, Tải video fb, Tải reels facebook, tải story facebook, Tải video facebook online, tải video từ facebook, tải video facebook về điện thoại, tải video facebook về máy tính, tải video facebook chất lượng cao, tải video facebook 4k, tải video facebook hd, tải video facebook mp4",
+    "sub_keywords": "Tải video Facebook về điện thoại Android, Tải video Facebook về iPhone, Lưu video Facebook không cần phần mềm, Tải video FB trên máy tính, Tải video từ Facebook về laptop, Tải reels Facebook về điện thoại, Tải story Facebook chất lượng cao, Tải video Facebook HD miễn phí, Tải video Facebook MP4 không cần đăng nhập, Tải video từ Facebook về máy tính Windows, Tải video từ Facebook về MacBook, Tải video Facebook online nhanh chóng, Tải video Facebook chất lượng 4K, Tải video Facebook không bị giảm chất lượng, Tải video Facebook từ nhóm kín",
+    "long_tail_keywords": "Hướng dẫn tải video Facebook về điện thoại Android miễn phí, Cách tải video Facebook về iPhone không cần cài đặt phần mềm, Hướng dẫn lưu video Facebook vào thư viện ảnh mà không cần phần mềm, Phương pháp tải video FB trên máy tính nhanh chóng và dễ dàng, Cách tải video từ Facebook về laptop với chất lượng cao, Tải reels Facebook về điện thoại Android đơn giản nhất, Cách tải story Facebook về điện thoại mà không bị mờ, Tải video Facebook HD miễn phí và không cần đăng nhập, Hướng dẫn tải video Facebook MP4 trên iPhone, Cách tải video từ Facebook về máy tính Windows 10 miễn phí, Hướng dẫn tải video từ Facebook về MacBook đơn giản và nhanh chóng, Phương pháp tải video Facebook online mà không cần phần mềm, Tải video Facebook chất lượng 4K về điện thoại iPhone, Cách tải video Facebook không bị giảm chất lượng và không cần đăng nhập, Hướng dẫn tải video Facebook từ nhóm kín mà không cần phần mềm hỗ trợ",
+    "introduction": {
+      "title": "FastSave.live - Công cụ tải video Facebook miễn phí tốt nhất",
+      "content": "FastSave hỗ trợ tải video Facebook và lưu tất cả các loại video từ Facebook về điện thoại hoặc máy tính của bạn với chất lượng tốt nhất (lên đến 4K). Video trên các post/watch, Video Livestream, video trong các nhóm công khai/riêng tư,... dễ dàng tải xuống & lưu từ Fb chỉ với vài cú nhấp chuột. FastSave cũng có thể tải video story Fb có chất lượng tốt. Tất cả những gì bạn cần là kết bạn với người tạo story trên Fb và làm theo các bước tương tự như tải xuống video Facebook riêng tư.",
+      "start_download": "Tải video Facebook ngay"
+    },
+    "how_to_use": {
+      "title": "Cách sử dụng FastSave để tải video Facebook",
+      "description": "Bạn có thể làm theo các bước dưới đây để tải video Facebook về máy tính hoặc điện thoại của mình.",
+      "watch_video": "Xem video hướng dẫn",
+      "steps": {
+        "copy_url": {
+          "title": "Bước 1: Sao chép URL video Facebook",
+          "description": "Sao chép URL video Facebook bạn muốn tải xuống. Bạn có thể sao chép URL bằng cách nhấn chuột phải vào video và chọn 'Sao chép liên kết video'."
+        },
+        "paste_url": {
+          "title": "Bước 2: Dán URL video Facebook",
+          "description": "Dán URL video Facebook bạn đã sao chép vào ô trống ở trên trang web này."
+        },
+        "download": {
+          "title": "Bước 3: Tải video Facebook",
+          "description": "Nhấn nút 'Tải xuống' để bắt đầu quá trình tải video Facebook của bạn."
+        },
+        "save": {
+          "title": "Bước 4: Lưu video Facebook",
+          "description": "Sau khi video được tải xuống, bạn có thể chọn chất lượng và lưu video Facebook về điện thoại hoặc máy tính của mình."
+        }
+      }
+    }
+  },
+  "facebook private video downloader": {
+    "title": "Tải video Facebook riêng tư - FastSave",
+    "heading": "Tải video facebook riêng tư",
+    "slogan": "Tải video riêng tư facebook về điện thoại hoặc máy tính miễn phí chất lượng cao. Full HD, 2K, 4K.",
+    "description": "Công cụ tải video riêng tư trên facebook giúp bạn tải video fb về máy tính hoặc điện thoại miễn phí chất lượng cao."
+  },
+  "common": {
+    "paste_url": "Dán URL video Facebook vào đây",
+    "grant_clipboard_access": "Vui lòng cấp quyền truy cập vào clipboard",
+    "browser_not_support": "Trình duyệt của bạn không hỗ trợ, vui lòng thử lại với trình duyệt khác",
+    "download": "Tải xuống",
+    "unknown_error": "Lỗi không xác định, vui lòng thử lại sau",
+    "invalidate_url": "URL không hợp lệ, vui lòng kiểm tra lại",
+    "why_use": {
+      "title": "Tại sao nên sử dụng FastSave để tải video Facebook?",
+      "description": "FastSave.live là trình tải xuống video Facebook tốt nhất giúp bạn tải xuống video Facebook chất lượng cao: Full HD, 2K, 4K (mp4). Tải video Facebook về điện thoại, PC hoặc máy tính bảng của bạn miễn phí. Sử dụng trình tải xuống video FB của chúng tôi với trình duyệt của bạn. Không cần cài đặt bất kỳ phần mềm nào. Hỗ trợ cả Android và iOS.",
+      "reasons": {
+        "free": {
+          "title": "Miễn phí và dễ sử dụng",
+          "description": "FastSave.live là công cụ tải video Facebook miễn phí và dễ sử dụng. Bạn không cần phải trả bất kỳ chi phí nào để tải video Fb của mình."
+        },
+        "fast": {
+          "title": "Tải video Facebook nhanh chóng",
+          "description": "FastSave.live giúp bạn tải video Facebook nhanh chóng và dễ dàng. Bạn có thể tải video Facebook với chất lượng cao chỉ trong vài giây."
+        },
+        "support_all": {
+          "title": "Hỗ trợ tất cả các thiết bị",
+          "description": "FastSave.live hỗ trợ tất cả các thiết bị bao gồm máy tính, điện thoại di động, máy tính bảng,... Bạn có thể tải video Facebook về bất kỳ thiết bị nào bạn muốn."
+        },
+        "safe": {
+          "title": "An toàn và bảo mật",
+          "description": "FastSave.live là công cụ tải video Facebook an toàn và bảo mật. Chúng tôi không lưu trữ bất kỳ dữ liệu nào của bạn. Tất cả video Facebook bạn tải xuống đều được xử lý trên máy chủ của Facebook."
+        }
+      }
+    },
+    "frequently_asked_questions": {
+      "title": "Câu hỏi thường gặp",
+      "list": [
+        {
+          "question": "Tại sao nên dùng FastSave Để Download Video Facebook?",
+          "answer": "Theo đánh giá và nhận xét của người dùng, FastSave hiện tại là công cụ Tải Video Facebook tốc độ nhanh nhất, Chất lượng cao nhất, ổn định nhất ở thời điểm hiện tại. Chúng tôi phục vụ việc Tải xuống video từ facebook (Save From Facebook) tốt nhất cho bạn, Và liên tục cải tiến chất lượng công cụ để cung cấp cho người dùng trải nghiệm tốt."
+        },
+        {
+          "question": "Cách tải video Facebook về máy tính như thế nào?",
+          "answer": "Trên máy tính Chỉ cần sao chép liên kết của video Facebook và dán nó vào hộp nhập liên kết được cung cấp ở đầu trang này và nhấn nút Tải xuống là xong! Xem thêm hướng dẫn sử dụng FastSave Hướng dẫn sử dụng Snapsave để tải video Facebook"
+        },
+        {
+          "question": "Làm thế nào để tải video Facebook về Android?",
+          "answer": "Cũng giống như tải video trên FB từ máy tính, rất đơn giản hãy truy cập FastSave.live -> Nhập Link Video Facebook -> Và Bấm Download -> Chọn chất lượng bạn muốn tải về (Hỗ trợ đến Video 4K)"
+        },
+        {
+          "question": "Tải Video Facebook 4k Như thế nào?",
+          "answer": "Bạn chỉ cần có link video Facebook chất lượng 4K. Sao chép liên kết -> Truy cập FastSave.live -> Nhập Link Video Facebook -> Và Bấm Download -> Chọn chất lượng bạn 4K để tải về."
+        },
+        {
+          "question": "Làm thế nào để tải video Facebook về Iphone(IOS)?",
+          "answer": "Đối với IOS phức tạp hơn 1 chút, vì IOS không hỗ trợ tải Video FB trực Tiếp nên bạn cần tải thêm ứng dụng Documents by Readdle, Mở ứng dụng lên, Chọn trình duyệt -> Truy cập FastSave.live -> Nhập Link Video Facebook -> Và Bấm Download -> Chọn chất lượng bạn muốn tải về."
+        },
+        {
+          "question": "Làm cách nào để Tải video Facebook online?",
+          "answer": "Ồ… Đơn giản Bạn chỉ cần sao chép liên kết của video Facebook mà bạn muốn tải xuống và dán link vào khung nhập link tại FastSave.live .Phần còn lại FastSave sẽ tự giải quyết."
+        },
+        {
+          "question": "Tôi có thể lưu video Facebook trên điện thoại của mình không?",
+          "answer": "Tất nhiên, việc lưu video Facebook về máy sau khi bạn tải xong thông thường sẽ ở thư mục Download của máy Windows hoặc Android, Còn Iphone thì phức tạp hơn xem thêm ở trên."
+        },
+        {
+          "question": "Tôi có thể tải xuống video phát Trực tiếp trên Facebook không?",
+          "answer": "Tất nhiên rồi, Nhưng bạn chỉ có thể tải xuống các video Trực tiếp trên Facebook nhưng chỉ sau khi chúng kết thúc. còn trong lúc phát sẽ không thể tải được."
+        },
+        {
+          "question": "FastSave.live có lưu trữ các video đã tải xuống hay giữ một bản sao của video không?",
+          "answer": "Ồ không, FastSave.live không lưu trữ video cũng như không giữ bản sao của các video đã tải xuống. Chúng tôi chỉ hỗ trợ Render lại các video bị mất âm thanh và không lưu trữ. Tất cả video được lưu trữ trên máy chủ của Facebook và chỉ tải xuống máy của bạn."
+        }
+      ]
+    }
+  },
+  "hot_keywords": [
+    "Công cụ tải video fb",
+    "Công cụ lưu video facebook",
+    "Công cụ tải story facebook",
+    "Công cụ tải reels facebook"
+  ],
+  "FastSave": "FastSave",
+  "Lang": "Languages",
+  "Af": "Afrikaans",
+  "Ga": "Gaeilge",
+  "Sq": "Shqiptar",
+  "It": "Italiano",
+  "Ar": "عربى",
+  "Ja": "日本語",
+  "Az": "Azərbaycanca",
+  "Kn": "ಕನ್ನಡ",
+  "Eu": "Euskal",
+  "Ko": "한국어",
+  "Bn": "বাংলা",
+  "La": "Latine",
+  "Be": "Беларускі",
+  "Lv": "Latviešu",
+  "Bg": "Български",
+  "Lt": "Lietuvių",
+  "Ca": "Català",
+  "Mk": "Македонски",
+  "ZhCn": "简体中文",
+  "Ms": "Melayu",
+  "ZhTw": "繁體中文",
+  "Mt": "Malti",
+  "Hr": "Hrvatski",
+  "No": "Norsk",
+  "Cs": "Čeština",
+  "Fa": "فارسی",
+  "Da": "Dansk",
+  "Pl": "Polski",
+  "Nl": "Nederlands",
+  "Pt": "Português",
+  "En": "English",
+  "Ro": "Română",
+  "Eo": "Esperanto",
+  "Ru": "Русский",
+  "Et": "Eesti",
+  "Sr": "Српски",
+  "Fil": "Pilipino",
+  "Sk": "Slovenčina",
+  "Fi": "Suomi",
+  "Sl": "Slovenščina",
+  "Fr": "Français",
+  "Es": "Español",
+  "Gl": "Galego",
+  "Sw": "Kiswahili",
+  "Ka": "ქართული",
+  "Sv": "Svenska",
+  "De": "Deutsch",
+  "Ta": "தமிழ்",
+  "El": "Ελληνικά",
+  "Te": "తెలుగు",
+  "Gu": "ગુજરાતી",
+  "Th": "ไทย",
+  "Ht": "Kreyòl Ayisyen",
+  "Tr": "Türk",
+  "He": "עִברִית",
+  "Uk": "Український",
+  "Hi": "हिन्दी",
+  "Ur": "اردو",
+  "Hu": "Magyar",
+  "Vi": "Tiếng Việt",
+  "Is": "Íslensku",
+  "Cy": "Cymraeg",
+  "Id": "Bahasa Indonesia",
+  "Yi": "ייִדיש"
+}
